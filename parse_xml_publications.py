@@ -64,6 +64,10 @@ def parse_endnote_xml(xml_file):
         pages_elem = record.find('.//pages')
         pub['pages'] = get_text_from_element(pages_elem)
         
+        # Publisher
+        publisher_elem = record.find('.//publisher')
+        pub['publisher'] = get_text_from_element(publisher_elem)
+
         # DOI
         doi_elem = record.find('.//electronic-resource-num')
         pub['doi'] = get_text_from_element(doi_elem)
