@@ -1,0 +1,61 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Interface Dots Logo - Square Format Maximum Detail -->
+  <defs>
+    <radialGradient id="materialGrad" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#003366;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="interfaceGlow" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#00CCCC;stop-opacity:0.4" />
+      <stop offset="50%" style="stop-color:#0066CC;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#003366;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background grid (nanoscale) -->
+  <line x1="120" y1="0" x2="120" y2="240" stroke="#003366" stroke-width="0.5" opacity="0.15"/>
+  <line x1="0" y1="120" x2="240" y2="240" stroke="#003366" stroke-width="0.5" opacity="0.15"/>
+  
+  <!-- Field lines -->
+  <path d="M 20 120 Q 70 90, 120 120 T 220 120" stroke="#0066CC" stroke-width="0.5" opacity="0.2" fill="none"/>
+  <path d="M 20 120 Q 70 150, 120 120 T 220 120" stroke="#0066CC" stroke-width="0.5" opacity="0.2" fill="none"/>
+  
+  <!-- Left: BIOMATERIAL -->
+  <circle cx="40" cy="120" r="18" fill="url(#materialGrad)"/>
+  <line x1="32" y1="120" x2="48" y2="120" stroke="#00CCCC" stroke-width="2" opacity="0.5"/>
+  <line x1="40" y1="112" x2="40" y2="128" stroke="#00CCCC" stroke-width="2" opacity="0.5"/>
+  <line x1="35" y1="115" x2="45" y2="125" stroke="#00CCCC" stroke-width="1.5" opacity="0.4"/>
+  <line x1="35" y1="125" x2="45" y2="115" stroke="#00CCCC" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="40" cy="120" r="3" fill="#FFFFFF"/>
+  
+  <!-- Interface glow -->
+  <circle cx="120" cy="120" r="50" fill="url(#interfaceGlow)"/>
+  
+  <!-- Center: INTERFACE ZONE -->
+  <circle cx="120" cy="120" r="35" fill="#003366"/>
+  <circle cx="120" cy="120" r="26" fill="none" stroke="#0066CC" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="120" cy="120" r="14" fill="none" stroke="#00CCCC" stroke-width="2" opacity="0.7"/>
+  <circle cx="120" cy="120" r="6" fill="#00CCCC"/>
+  <!-- Electrons -->
+  <circle cx="120" cy="94" r="2.5" fill="#FFFFFF"/>
+  <circle cx="146" cy="120" r="2.5" fill="#FFFFFF"/>
+  <circle cx="120" cy="146" r="2.5" fill="#FFFFFF"/>
+  <circle cx="94" cy="120" r="2.5" fill="#FFFFFF"/>
+  
+  <!-- Connection bonds -->
+  <line x1="58" y1="120" x2="85" y2="120" stroke="#0066CC" stroke-width="2.5" stroke-dasharray="4,3" opacity="0.6"/>
+  <line x1="155" y1="120" x2="182" y2="120" stroke="#0066CC" stroke-width="2.5" stroke-dasharray="4,3" opacity="0.6"/>
+  <circle cx="71" cy="120" r="2" fill="#0066CC" opacity="0.6"/>
+  <circle cx="169" cy="120" r="2" fill="#0066CC" opacity="0.6"/>
+  
+  <!-- Right: MICROORGANISM -->
+  <circle cx="200" cy="120" r="18" fill="url(#materialGrad)"/>
+  <circle cx="200" cy="120" r="14" fill="none" stroke="#00CCCC" stroke-width="1.5" opacity="0.8"/>
+  <circle cx="200" cy="120" r="10" fill="none" stroke="#00CCCC" stroke-width="1" opacity="0.5"/>
+  <!-- DNA -->
+  <path d="M 195 117 Q 197 115, 200 117 T 205 117" stroke="#FFFFFF" stroke-width="1" fill="none" opacity="0.6"/>
+  <path d="M 195 123 Q 197 125, 200 123 T 205 123" stroke="#FFFFFF" stroke-width="1" fill="none" opacity="0.6"/>
+  <!-- Flagellum -->
+  <path d="M 218 120 Q 224 113, 229 120 T 237 120" stroke="#003366" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 218 120 Q 224 127, 229 120" stroke="#003366" stroke-width="2" fill="none" opacity="0.4"/>
+</svg>

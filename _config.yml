@@ -1,0 +1,39 @@
+# Site Settings
+title: 'Dr. Utkarsh Mangal - Research Portfolio'
+description: 'Applied Interface Microbiology  & Dental Biomaterials'
+url: 'https://utkmangal.github.io'
+baseurl: ''
+
+# Author Information
+author:
+  name: 'Dr. Utkarsh Mangal'
+  email: 'mangal@yonsei.ac.kr'
+  bio: 'Applied Interface Microbiology  & Dental Biomaterials Researcher'
+  location: 'Seoul, South Korea'
+  orcid: '0000-0002-8323-9812'
+  google_scholar: 'SCHOLAR_ID'
+
+# GitHub Profile
+github_username: 'utkmangal'
+
+# Build Settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  publications:
+    output: true
+    permalink: '/publications/:title/'
+
+# Defaults
+defaults:
+  - scope:
+      path: ''
+    values:
+      layout: 'default'
+
