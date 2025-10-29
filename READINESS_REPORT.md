@@ -1,3 +1,8 @@
+---
+layout: none
+sitemap: false
+---
+
 # GitHub Pages Publication Readiness Report
 **Date:** October 29, 2025  
 **Repository:** utkmangal.github.io  

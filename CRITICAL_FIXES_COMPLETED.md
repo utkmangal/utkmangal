@@ -1,3 +1,8 @@
+---
+layout: none
+sitemap: false
+---
+
 # ✅ Critical Issues Fixed - Ready for GitHub Pages
 
 **Date:** October 29, 2025  

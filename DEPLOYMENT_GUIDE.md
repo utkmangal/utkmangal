@@ -1,3 +1,8 @@
+---
+layout: none
+sitemap: false
+---
+
 # 🚀 GitHub Pages Deployment Guide
 
 ## ✅ Status: READY TO DEPLOY

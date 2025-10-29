@@ -1,3 +1,8 @@
+---
+layout: none
+sitemap: false
+---
+
 # GitHub Pages Research Portfolio - Setup Instructions
 
 ## OBJECTIVE
