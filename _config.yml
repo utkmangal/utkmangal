@@ -2,7 +2,7 @@
 title: 'Dr. Utkarsh Mangal - Research Portfolio'
 description: 'Applied Interface Microbiology  & Dental Biomaterials'
 url: 'https://utkmangal.github.io'
-baseurl: ''
+baseurl: '/utkmangal'
 
 # Author Information
 author:
@@ -23,6 +23,18 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - PORTFOLIO_SETUP_INSTRUCTIONS.md
+  - CRITICAL_FIXES_COMPLETED.md
+  - DEPLOYMENT_GUIDE.md
+  - READINESS_REPORT.md
+  - generate_favicons.sh
+  - generate_stats.py
+  - export_bibtex.py
+  - process_citations.py
+  - citations.csv
 
 # Collections
 collections:
