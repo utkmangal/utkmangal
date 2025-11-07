@@ -1,12 +1,13 @@
 title: "Utkarsh Mangal"
 description: "Assistant Research Professor — Yonsei University College of Dentistry"
 theme: jekyll-theme-minimal
-markdown: kramdown
-kramdown:
-  input: GFM
-# IMPORTANT for project pages:
+
+# Required for project sites
 url: "https://utkmangal.github.io"
 baseurl: "/utkmangal"
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+
+# Assets
+favicon: "/utkmangal/assets/favicon.ico"
+show_downloads: false
+markdown: kramdown
+plugins: []
