@@ -18,7 +18,7 @@ p,li{margin:0 0 10px} a{color:inherit;text-decoration:underline}
 nav{max-width:var(--max);margin:0 auto;padding:14px 20px;border-bottom:1px solid #000;display:flex;gap:16px;flex-wrap:wrap}
 nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{border-color:#000}
 .hero{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center}
-.avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid #000}
+.avatar{width:96px;height:96px;border-radius:50%;object-fit:contain;border:1px solid #000;background:#fff}
 @media (min-width:760px){.hero{grid-template-columns:112px 1fr}.avatar{width:112px;height:112px}}
 .pubs{display:grid;gap:16px}
 @media (min-width:760px){.pubs{grid-template-columns:repeat(2,1fr)}}
@@ -57,15 +57,23 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
   <section id="about">
     <h2>About</h2>
     <p class="small">
-      Dental biomaterials and orthodontics researcher focused on biofilm-resistant materials, clear aligner performance, nanozyme and zwitterionic systems, and clinically translatable CAD/CAM solutions.
+      Applied interface microbiomlogy researcher focused on metagenomic characterization of oral biomaterials. Research elements explored include biofilm-resistant materials, clear aligner performance, nanozyme and zwitterionic systems, and clinically translatable CAD/CAM solutions.
     </p>
   </section>
 
   <section id="experience">
     <h2>Experience</h2>
     <ul class="list-tight small">
-      <li>Assistant Research Professor, Dept. of Oral Biology, Yonsei University College of Dentistry, Seoul, Republic of Korea <em>(Mar 2025–present)</em></li>
-      <li>Assistant Research Professor, Department of Orthodontics, Institute of Craniofacial Deformity, Yonsei University College of Dentistry, Seoul, Korea <em>(2024–2025)</em></li>
+      <li><strong>Assistant Research Professor</strong>, Dept. of Oral Biology, Yonsei University College of Dentistry, Seoul, Republic of Korea <em>(Mar 2025–present)</em>
+        <br><em>Role:</em> Leading research on dental biomaterials and biofilm-resistant materials</li>
+      <li><strong>Assistant Research Professor</strong>, Department of Applied Life Sciences, Inno-Dent Convergence Academy, Yonsei University College of Dentistry, Seoul, Korea <em>(2024–2025)</em>
+        <br><em>Role:</em> Research on nanozyme dental polymer systems and biocompatible medical devices</li>
+      <li><strong>Assistant Research Professor</strong>, Department of Orthodontics, Institute of Craniofacial Deformity, Yonsei University College of Dentistry, Seoul, Korea <em>(2024–2025)</em>
+        <br><em>Role:</em> Development of biofilm-repellent dental CAD/CAM blocks and anti-cariogenic bioactive cement</li>
+      <li><strong>Post-doctoral Research Fellow</strong>, Department of Orthodontics, Institute of Craniofacial Deformity, Yonsei University College of Dentistry, Seoul, Korea <em>(2022–2023)</em>
+        <br><em>Projects:</em> Antifouling and bioactive dental biomaterials using zwitterionic network modifiers</li>
+      <li><strong>Ph.D. Researcher</strong>, Department of Orthodontics, Institute of Craniofacial Deformity, Yonsei University College of Dentistry, Seoul, Korea <em>(2019–2022)</em>
+        <br><em>Projects:</em> AI-based autodiagnosis of malocclusion, automated digital calibration systems, zwitterionic dental biomaterials research</li>
     </ul>
   </section>
 
