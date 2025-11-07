@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://utkmangal.github.io/utkmangal/sitemap.xml
-
