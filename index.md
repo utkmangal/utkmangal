@@ -20,7 +20,6 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
 .hero{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center}
 .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid #000}
 @media (min-width:760px){.hero{grid-template-columns:112px 1fr}.avatar{width:112px;height:112px}}
-/* publications grid */
 .pubs{display:grid;gap:16px}
 @media (min-width:760px){.pubs{grid-template-columns:repeat(2,1fr)}}
 .pub{border:1px solid #000;padding:10px}
@@ -38,7 +37,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
 
 <main>
   <header class="hero">
-    <img src="/assets/img/profile.jpg" alt="Utkarsh Mangal headshot" class="avatar">
+    <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="Utkarsh Mangal headshot" class="avatar">
     <div>
       <h1>Utkarsh Mangal, B.D.S, M.D.S, Ph.D</h1>
       <p class="small">
@@ -48,7 +47,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
         <a class="badge" href="https://orcid.org/0000-0002-8323-9812">ORCID</a>
         <a class="badge" href="https://www.scopus.com/authid/detail.uri?authorId=57201436463">Scopus</a>
         <span class="badge">ResearcherID: E-4803-2018</span>
-        <a class="badge" href="/assets/cv/Utkarsh_Mangal_CV2025.pdf">Download CV (PDF)</a>
+        <a class="badge" href="{{ '/assets/cv/Utkarsh_Mangal_CV2025.pdf' | relative_url }}">Download CV (PDF)</a>
       </div>
     </div>
   </header>
@@ -72,42 +71,49 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
 
   <section id="publications">
     <h2>Selected publications</h2>
-    <!-- Replace placeholder images with article first pages in /assets/img/papers/ -->
     <div class="pubs">
 
       <figure class="pub">
-        <img src="/assets/img/papers/nat-commun-2024.jpg" alt="Nature Communications article first page">
+        <img src="{{ '/assets/img/papers/nat-commun-2024.jpg' | relative_url }}" alt="Nature Communications article first page">
         <figcaption>
-          Choi W, <strong>Mangal U</strong>, Yu JH, Ryu JH, Kim JY, Jun T, <em>et&nbsp;al.</em> Viscoelastic and antimicrobial dental care bioplastic with recyclable life cycle. <em>Nature Communications</em>, 2024.
+          Choi W, <strong>Mangal U</strong>, Yu JH, Ryu JH, Kim JY, Jun T, <em>et&nbsp;al.</em> 
+          Viscoelastic and antimicrobial dental care bioplastic with recyclable life cycle. 
+          <em>Nature Communications</em>, 2024.
         </figcaption>
       </figure>
 
       <figure class="pub">
-        <img src="/assets/img/papers/adv-healthcare-mater-2024.jpg" alt="Advanced Healthcare Materials article first page">
+        <img src="{{ '/assets/img/papers/adv-healthcare-mater-2024.jpg' | relative_url }}" alt="Advanced Healthcare Materials article first page">
         <figcaption>
-          Ryu JH, <strong>Mangal U</strong>, Kwon JS, Seo JY, Byun SY, Lee YH, <em>et&nbsp;al.</em> Integrating phosphate enhances biomineralization effect of methacrylate cement in vital pulp treatment. <em>Advanced Healthcare Materials</em>, 2024.
+          Ryu JH, <strong>Mangal U</strong>, Kwon JS, Seo JY, Byun SY, Lee YH, <em>et&nbsp;al.</em> 
+          Integrating phosphate enhances biomineralization effect of methacrylate cement in vital pulp treatment. 
+          <em>Advanced Healthcare Materials</em>, 2024.
         </figcaption>
       </figure>
 
       <figure class="pub">
-        <img src="/assets/img/papers/biomaterials-2023.jpg" alt="Biomaterials article first page">
+        <img src="{{ '/assets/img/papers/biomaterials-2023.jpg' | relative_url }}" alt="Biomaterials article first page">
         <figcaption>
-          Jin J, <strong>Mangal U</strong>, Seo JY, Kim JY, Ryu JH, Lee YH, <em>et&nbsp;al.</em> Cerium oxide nanozymes confer a bio-friendly surface micro-environment to methacrylate-based oro-facial prostheses. <em>Biomaterials</em>, 2023.
+          Jin J, <strong>Mangal U</strong>, Seo JY, Kim JY, Ryu JH, Lee YH, <em>et&nbsp;al.</em> 
+          Cerium oxide nanozymes confer a bio-friendly surface micro-environment to methacrylate-based oro-facial prostheses. 
+          <em>Biomaterials</em>, 2023.
         </figcaption>
       </figure>
 
       <figure class="pub">
-        <img src="/assets/img/papers/bioactive-materials-2022.jpg" alt="Bioactive Materials article first page">
+        <img src="{{ '/assets/img/papers/bioactive-materials-2022.jpg' | relative_url }}" alt="Bioactive Materials article first page">
         <figcaption>
-          Kim JY, Choi W, <strong>Mangal U</strong>, Seo JY, Kang TY, Lee J, <em>et&nbsp;al.</em> Multivalent network modifier upregulates bioactivity of multispecies biofilm-resistant polyalkenoate cement. <em>Bioactive Materials</em>, 2022.
+          Kim JY, Choi W, <strong>Mangal U</strong>, Seo JY, Kang TY, Lee J, <em>et&nbsp;al.</em> 
+          Multivalent network modifier upregulates bioactivity of multispecies biofilm-resistant polyalkenoate cement. 
+          <em>Bioactive Materials</em>, 2022.
         </figcaption>
       </figure>
 
-      <!-- Template block to add your J Periodontal Research item -->
       <figure class="pub">
-        <img src="/assets/img/papers/j-periodontal-res-XXXX.jpg" alt="Journal of Periodontal Research article first page">
+        <img src="{{ '/assets/img/papers/j-periodontal-res-XXXX.jpg' | relative_url }}" alt="Journal of Periodontal Research article first page">
         <figcaption>
-          <strong>[Add full citation here]</strong>. <em>Journal of Periodontal Research</em>, [Year].
+          <strong>[Add full citation here]</strong>. 
+          <em>Journal of Periodontal Research</em>, [Year].
         </figcaption>
       </figure>
 
