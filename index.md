@@ -23,7 +23,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
 .pubs{display:grid;gap:16px}
 @media (min-width:760px){.pubs{grid-template-columns:repeat(2,1fr)}}
 .pub{border:1px solid #000;padding:10px}
-.pub img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid #000;background:#f5f5f5}
+.pub img{width:100%;height:auto;object-fit:contain;border:1px solid #000;background:#f5f5f5}
 .pub figcaption{margin-top:10px;font-size:.95rem}
 .logo-inline{height:32px;width:auto;display:block}
 nav{align-items:center}
@@ -125,9 +125,9 @@ nav a img:hover{opacity:1}
       </figure>
 
       <figure class="pub">
-        <img src="{{ site.baseurl }}/assets/img/papers/j-periodontal-res-XXXX.jpg" alt="Journal of Periodontal Research article first page">
+        <img src="{{ site.baseurl }}/assets/img/papers/j-periodontal-res-2022.jpg" alt="Journal of Periodontal Research article first page">
         <figcaption>
-          <strong>[Add full citation here]</strong>. <em>Journal of Periodontal Research</em>, [Year].
+          <strong>[Add full citation here]</strong>. <em>Journal of Periodontal Research</em>, 2022.
         </figcaption>
       </figure>
 
