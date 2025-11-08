@@ -48,7 +48,9 @@ nav a img:hover{opacity:1}
     <div>
       <h1>Utkarsh Mangal, B.D.S, M.D.S, Ph.D</h1>
       <p class="small">
-        Assistant Research Professor, Dept. of Oral Biology, Yonsei University College of Dentistry, Seoul, Republic of Korea
+        Assistant Research Professor<br>
+        Department of Oral Biology, Yonsei University College of Dentistry<br>
+        Seoul, Republic of Korea
       </p>
       <div>
         <a class="badge" href="https://orcid.org/0000-0002-8323-9812">ORCID</a>
