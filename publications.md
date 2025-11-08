@@ -70,7 +70,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
           <li>Potential applications in dental prosthetics and restorations</li>
         </ul>
 
-        <a href="https://www.nature.com/articles/s41467-024" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
+        <a href="https://doi.org/10.1038/s41467-024-53489-7" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
       </div>
     </div>
   </div>
@@ -99,7 +99,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
           <li>Superior biocompatibility compared to conventional cements</li>
         </ul>
 
-        <a href="https://onlinelibrary.wiley.com/journal/21922659" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
+        <a href="https://doi.org/10.1002/adhm.202402397" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
       </div>
     </div>
   </div>
@@ -128,7 +128,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
           <li>Enhanced healing with minimal inflammatory response</li>
         </ul>
 
-        <a href="https://www.nature.com/articles/s41467-023-43428-3" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
+        <a href="https://doi.org/10.1038/s41467-023-43428-3" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
       </div>
     </div>
   </div>
@@ -157,7 +157,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
           <li>Reduced inflammatory markers in cell culture studies</li>
         </ul>
 
-        <a href="https://www.sciencedirect.com/journal/biomaterials" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
+        <a href="https://doi.org/10.1016/j.biomaterials.2023.122063" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
       </div>
     </div>
   </div>
@@ -186,7 +186,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
           <li>Improved long-term clinical performance</li>
         </ul>
 
-        <a href="https://www.sciencedirect.com/journal/bioactive-materials" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
+        <a href="https://doi.org/10.1016/j.bioactmat.2021.11.020" class="badge" target="_blank" rel="noopener noreferrer">Read Publication</a>
       </div>
     </div>
   </div>
