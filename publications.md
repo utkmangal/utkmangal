@@ -42,7 +42,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
 
 <main>
   <h1>Selected Publications</h1>
-  <p class="small">Detailed view of selected research with graphical abstracts and roles.</p>
+  <p class="small">Harnessing microbial metagenomics for material-mediated solutions for dental and biomedical applications</p>
 
   <div class="hr"></div>
 
