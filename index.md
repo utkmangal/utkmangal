@@ -25,7 +25,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
 .pub{border:1px solid #000;padding:14px;min-width:0;flex:1}
 .pub img{width:100%;height:auto;object-fit:contain;border:1px solid #000;background:#f5f5f5}
 .pub figcaption{margin-top:10px;font-size:.95rem}
-.logo-inline{height:48px;width:auto;display:block;cursor:pointer}
+.logo-inline{height:62px;width:auto;display:block;cursor:pointer}
 nav{align-items:center}
 nav a img{opacity:.9;transition:.2s}
 nav a img:hover{opacity:1}
@@ -144,7 +144,7 @@ nav a img:hover{opacity:1}
 
     <details>
       <summary class="small">More publications</summary>
-      <p class="small">See CV for the complete publication record.</p>
+      <p class="small">See <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar profile</a> for the complete publication record.</p>
     </details>
   </section>
 
