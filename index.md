@@ -25,14 +25,20 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
 .pub{border:1px solid #000;padding:10px}
 .pub img{width:100%;height:auto;object-fit:contain;border:1px solid #000;background:#f5f5f5}
 .pub figcaption{margin-top:10px;font-size:.95rem}
-.logo-inline{height:48px;width:auto;display:block}
+.logo-inline{height:48px;width:auto;display:block;cursor:pointer}
 nav{align-items:center}
 nav a img{opacity:.9;transition:.2s}
 nav a img:hover{opacity:1}
+.logo-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;justify-content:center;align-items:center}
+.logo-modal.active{display:flex}
+.logo-modal-content{position:relative;background:#fff;padding:20px;border-radius:8px;max-width:90vw;max-height:90vh;overflow:auto}
+.logo-modal-close{position:absolute;top:10px;right:15px;font-size:28px;font-weight:bold;cursor:pointer;color:#000}
+.logo-modal-close:hover{color:#666}
+.logo-modal img{width:100%;height:auto;display:block}
 </style>
 
 <nav>
-  <a href="{{ site.baseurl }}/">
+  <a href="#" onclick="document.getElementById('logoModal').classList.toggle('active'); return false;">
     <img src="{{ site.baseurl }}/assets/img/logo.ico" alt="Logo" class="logo-inline">
   </a>
   <a href="#about">About</a>
@@ -158,3 +164,11 @@ nav a img:hover{opacity:1}
   <div class="hr"></div>
   <p class="small">© {{ site.time | date: "%Y" }} Utkarsh Mangal. Last updated {{ site.time | date: "%b %Y" }}.</p>
 </main>
+
+<!-- Logo Modal -->
+<div id="logoModal" class="logo-modal" onclick="if(event.target.id === 'logoModal') this.classList.remove('active')">
+  <div class="logo-modal-content">
+    <span class="logo-modal-close" onclick="document.getElementById('logoModal').classList.remove('active')">&times;</span>
+    <img src="{{ site.baseurl }}/assets/img/logo.tif" alt="UMLabs Logo" style="max-width:600px">
+  </div>
+</div>
