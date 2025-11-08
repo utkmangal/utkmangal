@@ -25,9 +25,16 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
 .pub{border:1px solid #000;padding:10px}
 .pub img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid #000;background:#f5f5f5}
 .pub figcaption{margin-top:10px;font-size:.95rem}
+.logo-inline{height:32px;width:auto;display:block}
+nav{align-items:center}
+nav a img{opacity:.9;transition:.2s}
+nav a img:hover{opacity:1}
 </style>
 
 <nav>
+  <a href="{{ site.baseurl }}/">
+    <img src="{{ site.baseurl }}/assets/img/logo.ico" alt="Logo" class="logo-inline">
+  </a>
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#publications">Selected publications</a>
@@ -93,6 +100,13 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
         <img src="{{ site.baseurl }}/assets/img/papers/adv-healthcare-mater-2024.jpg" alt="Advanced Healthcare Materials article first page">
         <figcaption>
           Ryu JH, <strong>Mangal U</strong>, Kwon JS, Seo JY, Byun SY, Lee YH, <em>et&nbsp;al.</em> Integrating phosphate enhances biomineralization effect of methacrylate cement in vital pulp treatment. <em>Advanced Healthcare Materials</em>, 2024.
+        </figcaption>
+      </figure>
+
+      <figure class="pub">
+        <img src="{{ site.baseurl }}/assets/img/papers/nat-commun-2023.jpg" alt="Nature Communications 2023 article first page">
+        <figcaption>
+          Choi W, <strong>Mangal U</strong>, Park JY, Kim JY, Jun T, Jung JW, <em>et&nbsp;al.</em> Occlusive membranes for guided regeneration of inflamed tissue defects. <em>Nature Communications</em>, 2023.
         </figcaption>
       </figure>
 
