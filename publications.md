@@ -60,7 +60,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
         <p class="small">Choi W, <strong>Mangal U</strong>, Yu JH, Ryu JH, Kim JY, Jun T, <em>et&nbsp;al.</em></p>
         
         <div class="pub-role">
-          <strong>Your Role:</strong> Co-first author - Performed experiments and contributed to the human saliva biofilm microbiome analysis, validating the material's resistance to oral microbes.
+          <strong>Key contribution:</strong> Performed experiments and contributed to the human saliva biofilm microbiome analysis, validating the material's resistance to oral microbes.
         </div>
 
         <h3 style="font-size:1rem">Key Findings</h3>
@@ -89,7 +89,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
         <p class="small">Ryu JH, <strong>Mangal U</strong>, Kwon JS, Seo JY, Byun SY, Lee YH, <em>et&nbsp;al.</em></p>
         
         <div class="pub-role">
-          <strong>Your Role:</strong> Co-author - Led biomineralization studies and in vitro biocompatibility assays, including assessing material response to oral conditions.
+          <strong>Key contribution:</strong> Led biomineralization studies and in vitro biocompatibility assays, including assessing material response to oral conditions.
         </div>
 
         <h3 style="font-size:1rem">Key Findings</h3>
@@ -118,7 +118,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
         <p class="small">Choi W, <strong>Mangal U</strong>, Park JY, Kim JY, Jun T, Jung JW, <em>et&nbsp;al.</em></p>
         
         <div class="pub-role">
-          <strong>Your Role:</strong> Co-first author - Conceived the idea and performed experiments for a symbiotically integrating occlusive membrane, including in-depth analysis of its impact on the oral microbiome and resistance to periodontal pathobionts.
+          <strong>Key contribution:</strong> Conceived the idea and performed experiments for a symbiotically integrating occlusive membrane, including in-depth analysis of its impact on the oral microbiome and resistance to periodontal pathobionts.
         </div>
 
         <h3 style="font-size:1rem">Key Findings</h3>
@@ -147,7 +147,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
         <p class="small">Jin J, <strong>Mangal U</strong>, Seo JY, Kim JY, Ryu JH, Lee YH, <em>et&nbsp;al.</em></p>
         
         <div class="pub-role">
-          <strong>Your Role:</strong> Co-author - Performed the microbiome analysis and antimicrobial efficacy evaluation, demonstrating the material's ability to inhibit oral pathogen biofilm formation.
+          <strong>Key contribution:</strong> Performed the microbiome analysis and antimicrobial efficacy evaluation, demonstrating the material's ability to inhibit oral pathogen biofilm formation.
         </div>
 
         <h3 style="font-size:1rem">Key Findings</h3>
@@ -176,7 +176,7 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
         <p class="small">Kim JY, Choi W, <strong>Mangal U</strong>, Seo JY, Kang TY, Lee J, <em>et&nbsp;al.</em></p>
         
         <div class="pub-role">
-          <strong>Your Role:</strong> Co-author - Performed the microbiome-related experiments and analysis, confirming the cement's resistance to multispecies oral biofilms.
+          <strong>Key contribution:</strong> Performed the microbiome-related experiments and analysis, confirming the cement's resistance to multispecies oral biofilms.
         </div>
 
         <h3 style="font-size:1rem">Key Findings</h3>
