@@ -43,7 +43,7 @@ nav a img:hover{opacity:1}
   </a>
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
-  <a href="#publications">Selected publications</a>
+  <a href="{{ site.baseurl }}/publications">Selected publications</a>
   <a href="#memberships">Memberships</a>
   <a href="#contact">Contact</a>
 </nav>
