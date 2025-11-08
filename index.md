@@ -142,9 +142,8 @@ nav a img:hover{opacity:1}
 
     </div>
 
-    <details>
-      <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">All research outputs</a> 
-    </details>
+    <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">All research outputs</a> 
+
   </section>
 
   <section id="memberships">
