@@ -46,7 +46,7 @@ nav a img:hover{opacity:1}
   <header class="hero">
     <img src="{{ site.baseurl }}/assets/img/profile.jpg" alt="Utkarsh Mangal headshot" class="avatar">
     <div>
-      <h1>Utkarsh Mangal, B.D.S, M.D.S, Ph.D</h1>
+      <h1>Utkarsh Mangal <span style="font-size:0.7em">B.D.S, M.D.S, Ph.D</span></h1>
       <p class="small">
         Assistant Research Professor<br>
         Department of Oral Biology, Yonsei University College of Dentistry<br>
