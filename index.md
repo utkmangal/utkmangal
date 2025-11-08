@@ -169,6 +169,6 @@ nav a img:hover{opacity:1}
 <div id="logoModal" class="logo-modal" onclick="if(event.target.id === 'logoModal') this.classList.remove('active')">
   <div class="logo-modal-content">
     <span class="logo-modal-close" onclick="document.getElementById('logoModal').classList.remove('active')">&times;</span>
-    <img src="{{ site.baseurl }}/assets/img/logo.tif" alt="UMLabs Logo" style="max-width:600px">
+    <img src="{{ site.baseurl }}/assets/img/icon.png" alt="UMLabs Logo" style="max-width:600px">
   </div>
 </div>
