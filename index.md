@@ -20,9 +20,9 @@ nav a{text-decoration:none;border-bottom:1px solid transparent} nav a:hover{bord
 .hero{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center}
 .avatar{width:96px;height:96px;border-radius:50%;object-fit:contain;border:1px solid #000;background:#fff}
 @media (min-width:760px){.hero{grid-template-columns:112px 1fr}.avatar{width:112px;height:112px}}
-.pubs{display:grid;gap:16px}
+.pubs{display:grid;gap:8px}
 @media (min-width:760px){.pubs{grid-template-columns:repeat(3,1fr)}}
-.pub{border:1px solid #000;padding:10px}
+.pub{border:1px solid #000;padding:12px;min-width:0}
 .pub img{width:100%;height:auto;object-fit:contain;border:1px solid #000;background:#f5f5f5}
 .pub figcaption{margin-top:10px;font-size:.95rem}
 .logo-inline{height:48px;width:auto;display:block;cursor:pointer}
