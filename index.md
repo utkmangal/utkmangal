@@ -73,7 +73,7 @@ nav a img:hover{opacity:1}
   <section id="about">
     <h2>About</h2>
     <p class="small">
-      Applied interface microbiomlogy researcher focused on metagenomic characterization of oral biomaterials. Research elements explored include biofilm-resistant materials, clear aligner performance, nanozyme and zwitterionic systems, and clinically translatable CAD/CAM solutions.
+      Applied interface microbiology researcher focused on metagenomic characterization of oral biomaterials. Research elements explored include biofilm-resistant materials, clear aligner performance, nanozyme and zwitterionic systems, and clinically translatable CAD/CAM solutions.
     </p>
   </section>
 
