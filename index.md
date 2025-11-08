@@ -143,8 +143,7 @@ nav a img:hover{opacity:1}
     </div>
 
     <details>
-      <summary class="small">More publications</summary>
-      <p class="small">See <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar profile</a> for the complete publication record.</p>
+      <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">All research outputs</a> 
     </details>
   </section>
 
