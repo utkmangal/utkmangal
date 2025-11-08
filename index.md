@@ -61,6 +61,7 @@ nav a img:hover{opacity:1}
       <div>
         <a class="badge" href="https://orcid.org/0000-0002-8323-9812">ORCID</a>
         <a class="badge" href="https://www.scopus.com/authid/detail.uri?authorId=57201436463">Scopus</a>
+        <a class="badge" href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
         <span class="badge">ResearcherID: E-4803-2018</span>
         <a class="badge" href="{{ site.baseurl }}/assets/cv/Utkarsh_Mangal_CV2025.pdf">Download CV (PDF)</a>
       </div>
