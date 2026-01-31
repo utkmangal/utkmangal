@@ -251,7 +251,7 @@ const App = () => {
               View Research
             </button>
             <button onClick={() => setActiveTab('students')} className="px-8 py-3 bg-white text-blue-600 border border-blue-100 rounded-full font-medium shadow-sm active:scale-95 transition-all">
-              Join the Lab
+              Let's Build Together
             </button>
           </div>
         </div>
@@ -441,11 +441,11 @@ const App = () => {
       <div className="bg-blue-600 rounded-[3rem] p-8 md:p-16 text-white mb-12 relative overflow-hidden shadow-2xl shadow-blue-100">
         <div className="relative z-10">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 text-[10px] font-black uppercase tracking-[0.2em] text-white">
-            Future Research
+            Collaborate With Us
           </div>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Join the Lab</h2>
+          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Let's Build and Explore Together</h2>
           <p className="text-blue-50 text-xl leading-relaxed max-w-2xl opacity-90">
-            I am always looking for motivated graduate students and researchers interested in the intersection of <strong>Bioinformatics</strong> and <strong>Dental Sciences</strong>.
+            We are building a collaborative research community at the intersection of <strong>Bioinformatics</strong> and <strong>Dental Sciences</strong>. We're seeking talented graduate students and researchers who share our passion for innovation and discovery.
           </p>
         </div>
         <Dna className="absolute -right-10 -bottom-10 text-white/5 w-80 h-80" />
@@ -476,7 +476,7 @@ const App = () => {
       </div>
 
       <div className="bg-slate-900 rounded-[3rem] p-12 text-white shadow-2xl">
-        <h3 className="text-2xl font-black mb-8 uppercase tracking-widest text-blue-400">Mentorship Culture</h3>
+        <h3 className="text-2xl font-black mb-8 uppercase tracking-widest text-blue-400">Our Collaborative Culture</h3>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
           {[
             "Interdisciplinary approach (Clinics + Bioinformatics)",
@@ -491,7 +491,7 @@ const App = () => {
           ))}
         </ul>
         <button onClick={() => setActiveTab('contact')} className="mt-12 w-full md:w-auto px-10 py-5 bg-blue-600 text-white rounded-2xl font-black flex items-center justify-center gap-3 uppercase tracking-widest shadow-xl shadow-blue-900/40 hover:scale-105 transition-all">
-          Submit Lab Inquiry <Mail size={18} />
+          Start a Conversation <Mail size={18} />
         </button>
       </div>
     </div>
@@ -603,7 +603,7 @@ const App = () => {
         <NavItem id="home" icon={User} label="Home" />
         <NavItem id="research" icon={Sparkles} label="Research" />
         <NavItem id="experience" icon={Briefcase} label="Exp" />
-        <NavItem id="students" icon={Users} label="Join" />
+        <NavItem id="students" icon={Users} label="Collaborate" />
         <NavItem id="contact" icon={Mail} label="Contact" />
       </nav>
 
