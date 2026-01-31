@@ -45,7 +45,7 @@ const App = () => {
   useEffect(() => {
     const fetchScholarData = async () => {
       try {
-        const response = await fetch('/scholar_data.json');
+        const response = await fetch('/utkmangal/scholar_data.json');
         if (!response.ok) {
           throw new Error('Failed to fetch scholar data');
         }
@@ -238,8 +238,8 @@ const App = () => {
         </div>
         
         <div className="relative z-10">
-          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-white shadow-xl overflow-hidden mb-8 mx-auto ring-4 ring-blue-50">
-            <img src="/utkmangal/assets/img/profile.jpg" alt={profile.name} className="w-full h-full object-cover" />
+          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-white shadow-xl overflow-hidden mb-8 mx-auto ring-4 ring-blue-50 bg-slate-200">
+            <div className="w-full h-full flex items-center justify-center text-slate-400 text-6xl font-black">UM</div>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-2">{profile.name}</h1>
           <p className="text-lg md:text-xl text-blue-600 font-semibold mb-6 tracking-wide">{profile.degrees}</p>
