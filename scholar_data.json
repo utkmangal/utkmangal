@@ -1,0 +1,40 @@
+{
+  "metrics": {
+    "name": "Utkarsh Mangal",
+    "citations": 582,
+    "hIndex": 14,
+    "i10Index": 18,
+    "lastUpdated": "January 31, 2026",
+    "lastUpdatedISO": "2026-01-31T00:00:00"
+  },
+  "publications": [
+    {
+      "title": "Viscoelastic and antimicrobial dental care bioplastic with recyclable life cycle",
+      "authors": "Mangal U, et al.",
+      "year": "2024",
+      "venue": "Nature Communications",
+      "citations": 45,
+      "url": "",
+      "abstract": "Development of sustainable antimicrobial bioplastic for dental care applications..."
+    },
+    {
+      "title": "Integrating phosphate enhances biomineralization effect of methacrylate cement",
+      "authors": "Mangal U, et al.",
+      "year": "2024",
+      "venue": "Advanced Healthcare Materials",
+      "citations": 38,
+      "url": "",
+      "abstract": "Novel approach to enhancing biomineralization in dental cements..."
+    },
+    {
+      "title": "Cerium oxide nanozymes confer a bio-friendly surface micro-environment",
+      "authors": "Mangal U, et al.",
+      "year": "2023",
+      "venue": "Biomaterials",
+      "citations": 52,
+      "url": "",
+      "abstract": "Investigation of cerium oxide nanozymes for creating biocompatible surfaces..."
+    }
+  ],
+  "fetchedAt": "2026-01-31T00:00:00"
+}
