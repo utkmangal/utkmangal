@@ -354,7 +354,7 @@ const App = () => {
                                 x2={`${target.x}%`} y2={`${target.y}%`}
                                 stroke={isHovered ? "#3b82f6" : "#475569"}
                                 strokeWidth={isHovered ? "2" : "0.5"}
-                                className="transition-all duration-500"
+                                className="transition-all duration-300"
                             />
                         );
                     })
@@ -367,12 +367,12 @@ const App = () => {
                     key={node.id}
                     onMouseEnter={() => setHoveredNode(node.id)}
                     onMouseLeave={() => setHoveredNode(null)}
-                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 group z-10`}
+                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-10`}
                     style={{ left: `${node.x}%`, top: `${node.y}%` }}
                 >
-                    <div className={`relative ${node.color} ${node.size} ${node.weight || 'font-black'} tracking-tighter uppercase whitespace-nowrap px-4 py-2 rounded-xl transition-all ${hoveredNode === node.id ? 'bg-white/10 scale-110 shadow-lg' : 'opacity-80'}`}>
+                    <div className={`relative ${node.color} ${node.size} ${node.weight || 'font-black'} tracking-tighter uppercase whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-300 ${hoveredNode === node.id ? 'bg-white/10 scale-110 shadow-lg' : 'opacity-80'}`}>
                         {node.text}
-                        <div className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-current transition-all duration-500 ${hoveredNode === node.id ? 'w-full' : 'w-0'}`}></div>
+                        <div className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-current transition-all duration-300 ${hoveredNode === node.id ? 'w-full' : 'w-0'}`}></div>
                     </div>
                 </div>
             ))}
