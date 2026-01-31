@@ -97,21 +97,24 @@ const App = () => {
       journal: "Nature Communications",
       year: "2024",
       tags: ["Bioplastic", "Antimicrobial", "Sustainability"],
-      impact: "High Impact"
+      impact: "High Impact",
+      url: "https://www.nature.com/articles/s41467-024-53489-7"
     },
     {
       title: "Integrating phosphate enhances biomineralization effect of methacrylate cement",
       journal: "Advanced Healthcare Materials",
       year: "2024",
       tags: ["Biomineralization", "Dental Cement"],
-      impact: "Lead Author"
+      impact: "Lead Author",
+      url: "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adhm.202402397"
     },
     {
       title: "Cerium oxide nanozymes confer a bio-friendly surface micro-environment",
       journal: "Biomaterials",
       year: "2023",
       tags: ["Nanozymes", "Surface Science"],
-      impact: "Clinical Translation"
+      impact: "Clinical Translation",
+      url: "https://www.sciencedirect.com/science/article/pii/S0142961223000716"
     }
   ];
 
@@ -415,9 +418,9 @@ const App = () => {
             </div>
             <div className="flex items-center justify-between pt-6 border-t border-slate-50">
                 <span className="text-xs font-bold text-slate-400">{pub.year}</span>
-                <button className="text-xs font-black text-blue-600 flex items-center gap-1 uppercase tracking-widest hover:translate-x-1 transition-transform">
+                <a href={pub.url} target="_blank" rel="noopener noreferrer" className="text-xs font-black text-blue-600 flex items-center gap-1 uppercase tracking-widest hover:translate-x-1 transition-transform duration-300">
                     View Paper <ChevronRight size={14} />
-                </button>
+                </a>
             </div>
           </div>
         ))}
