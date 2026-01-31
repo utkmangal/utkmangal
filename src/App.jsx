@@ -373,9 +373,9 @@ const App = () => {
                     className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-10`}
                     style={{ left: `${node.x}%`, top: `${node.y}%` }}
                 >
-                    <div className={`relative ${node.color} ${node.size} ${node.weight || 'font-black'} tracking-tighter uppercase whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-300 ${hoveredNode === node.id ? 'bg-white/10 scale-110 shadow-lg' : 'opacity-80'}`}>
+                    <div className={`relative ${node.color} ${node.size} ${node.weight || 'font-black'} tracking-tighter uppercase whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-300 ${hoveredNode === node.id ? 'scale-110' : 'opacity-80'}`}>
                         {node.text}
-                        <div className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-current transition-all duration-300 ${hoveredNode === node.id ? 'w-full' : 'w-0'}`}></div>
+                        {hoveredNode === node.id && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-current"></div>}
                     </div>
                 </div>
             ))}
