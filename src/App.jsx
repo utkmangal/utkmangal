@@ -525,7 +525,7 @@ const App = () => {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-xl shadow-sm py-3' : 'bg-transparent py-8'}`}>
         <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setActiveTab('home')}>
-            <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white font-black text-2xl transition-transform group-hover:rotate-12">U</div>
+            <img src="/utkmangal/logo.png" alt="Logo" className="w-10 h-10 transition-transform group-hover:scale-110" />
             <span className="font-black tracking-tighter text-xl hidden sm:block text-slate-900 uppercase">Utkarsh Mangal</span>
           </div>
           
