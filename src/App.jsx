@@ -530,17 +530,20 @@ const App = () => {
           </div>
           
           <div className="hidden md:flex items-center gap-10">
-            {['home', 'research', 'experience', 'students'].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`text-xs font-black uppercase tracking-[0.2em] transition-all hover:text-blue-600 ${
-                  activeTab === tab ? 'text-blue-600 translate-y-[-2px]' : 'text-slate-400'
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
+            {['home', 'research', 'experience', 'students'].map((tab) => {
+              const tabLabels = { home: 'Home', research: 'Research', experience: 'Experience', students: "Let's Colaborate!" };
+              return (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`text-xs font-black uppercase tracking-[0.2em] transition-all hover:text-blue-600 ${
+                    activeTab === tab ? 'text-blue-600 translate-y-[-2px]' : 'text-slate-400'
+                  }`}
+                >
+                  {tabLabels[tab]}
+                </button>
+              );
+            })}
           </div>
 
           <button 

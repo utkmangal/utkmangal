@@ -1,40 +1,193 @@
 {
   "metrics": {
     "name": "Utkarsh Mangal",
-    "citations": 582,
-    "hIndex": 14,
-    "i10Index": 18,
+    "citations": 715,
+    "hIndex": 15,
+    "i10Index": 21,
     "lastUpdated": "January 31, 2026",
-    "lastUpdatedISO": "2026-01-31T00:00:00"
+    "lastUpdatedISO": "2026-01-31T17:12:06.278768"
   },
   "publications": [
     {
-      "title": "Viscoelastic and antimicrobial dental care bioplastic with recyclable life cycle",
-      "authors": "Mangal U, et al.",
-      "year": "2024",
-      "venue": "Nature Communications",
-      "citations": 45,
-      "url": "",
-      "abstract": "Development of sustainable antimicrobial bioplastic for dental care applications..."
+      "title": "Novel poly (methyl methacrylate) containing nanodiamond to improve the mechanical properties and fungal resistance",
+      "authors": "Utkarsh Mangal and Ji-Yeong Kim and Ji-Young Seo and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2019,
+      "venue": "",
+      "citations": 89,
+      "url": "https://www.mdpi.com/1996-1944/12/20/3438",
+      "abstract": "Herein we evaluate the effect of nanodiamond (ND) incorporation on the mechanical properties of poly(methyl methacrylate) (PMMA) nanocomposite. Three quantities of ND (0.1, 0.3, and 0.5 wt.%) were tes..."
     },
     {
-      "title": "Integrating phosphate enhances biomineralization effect of methacrylate cement",
-      "authors": "Mangal U, et al.",
-      "year": "2024",
-      "venue": "Advanced Healthcare Materials",
-      "citations": 38,
-      "url": "",
-      "abstract": "Novel approach to enhancing biomineralization in dental cements..."
+      "title": "Durable oral biofilm resistance of 3D-printed dental base polymers containing zwitterionic materials",
+      "authors": "Jae-Sung Kwon and Ji-Yeong Kim and Utkarsh Mangal and Ji-Young Seo and Myung-Jin Lee and Jie Jin and Jae-Hun Yu and Sung-Hwan Choi",
+      "year": 2021,
+      "venue": "",
+      "citations": 79,
+      "url": "https://www.mdpi.com/1422-0067/22/1/417",
+      "abstract": "Poly(methyl methacralyate) (PMMA) has long been used in dentistry as a base polymer for dentures, and it is recently being used for the 3D printing of dental materials. Despite its many advantages, it..."
     },
     {
-      "title": "Cerium oxide nanozymes confer a bio-friendly surface micro-environment",
-      "authors": "Mangal U, et al.",
-      "year": "2023",
-      "venue": "Biomaterials",
-      "citations": 52,
-      "url": "",
-      "abstract": "Investigation of cerium oxide nanozymes for creating biocompatible surfaces..."
+      "title": "Incorporating aminated nanodiamonds to improve the mechanical properties of 3D-printed resin-based biomedical appliances",
+      "authors": "Utkarsh Mangal and Ji-Young Seo and Jaehun Yu and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2020,
+      "venue": "",
+      "citations": 62,
+      "url": "https://www.mdpi.com/2079-4991/10/5/827",
+      "abstract": "The creation of clinically patient-specific 3D-printed biomedical appliances that can withstand the physical stresses of the complex biological environment is an important objective. To that end, this..."
+    },
+    {
+      "title": "A comparison of accuracy of different dental restorative materials between intraoral scanning and conventional impression-taking: An in vitro study",
+      "authors": "Jung-Hwa Lim and Utkarsh Mangal and Na-Eun Nam and Sung-Hwan Choi and June-Sung Shim and Jong-Eun Kim",
+      "year": 2021,
+      "venue": "",
+      "citations": 56,
+      "url": "https://www.mdpi.com/1996-1944/14/8/2060",
+      "abstract": "The properties of underlying substrates influence the quality of an intraoral scan, but few studies have compared the outcomes using common restorative materials. In this study, we aimed to compare th..."
+    },
+    {
+      "title": "Changes in tribological and antibacterial properties of poly (methyl methacrylate)-based 3D-printed intra-oral appliances by incorporating nanodiamonds",
+      "authors": "Utkarsh Mangal and You Jin Min and Ji-Young Seo and Dae-Eun Kim and Jung-Yul Cha and Kee-Joon Lee and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2020,
+      "venue": "",
+      "citations": 41,
+      "url": "https://www.sciencedirect.com/science/article/pii/S1751616120305440",
+      "abstract": "It is essential for 3D-printed intra-oral appliances to be able to withstand the mechanical and microbial insult existent in the harsh environment of the oral cavity. Poly(methyl methacrylate) (PMMA)-..."
+    },
+    {
+      "title": "Bio-interactive zwitterionic dental biomaterials for improving biofilm resistance: Characteristics and applications",
+      "authors": "Utkarsh Mangal and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2020,
+      "venue": "",
+      "citations": 33,
+      "url": "https://www.mdpi.com/1422-0067/21/23/9087",
+      "abstract": "Biofilms are formed on surfaces inside the oral cavity covered by the acquired pellicle and develop into a complex, dynamic, microbial environment. Oral biofilm is a causative factor of dental and per..."
+    },
+    {
+      "title": "Evaluation of the effects of temperature and centrifugation time on elimination of uncured resin from 3D-printed dental aligners",
+      "authors": "Ji-Eun Kim and Utkarsh Mangal and Jae-Hun Yu and Gi-Tae Kim and Hoon Kim and Ji-Young Seo and Jung-Yul Cha and Kee-Joon Lee and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2024,
+      "venue": "",
+      "citations": 24,
+      "url": "https://www.nature.com/articles/s41598-024-66150-6",
+      "abstract": "The study investigated the effects of temperature and centrifugation time on the efficacy of removing uncured resin from 3D-printed clear aligners. Using a photo-polymerizable polyurethane resin (Tera..."
+    },
+    {
+      "title": "Resin-based sealant with bioactive glass and zwitterionic material for remineralisation and multi-species biofilm inhibition",
+      "authors": "Myung-Jin Lee and Ji-Yeong Kim and Ji-Young Seo and Utkarsh Mangal and Jung-Yul Cha and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2020,
+      "venue": "",
+      "citations": 21,
+      "url": "https://www.mdpi.com/2079-4991/10/8/1581",
+      "abstract": "Since pits and fissures are the areas most commonly affected by caries due to their structural irregularity, bioactive resin-based sealant (RBS) may contribute to the prevention of secondary caries. T..."
+    },
+    {
+      "title": "Influence of platelet rich plasma on orthodontic tooth movement: a review",
+      "authors": "Utkarsh Mangal",
+      "year": 2017,
+      "venue": "",
+      "citations": 21,
+      "url": "https://biomedpharmajournal.org/vol10no3/influence-of-platelet-rich-plasma-on-orthodontic-tooth-movement-a-review/",
+      "abstract": "With increasing awareness of orthodontic treatment in all age groups of society, emphasis on enhancing the rate of tooth movement has increased. This article discusses the existing methods of accelera..."
+    },
+    {
+      "title": "Zinc-modified phosphate-based glass micro-filler improves Candida albicans resistance of auto-polymerized acrylic resin without altering mechanical performance",
+      "authors": "Myung-Jin Lee and Min-Ji Kim and Utkarsh Mangal and Ji-Young Seo and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2022,
+      "venue": "",
+      "citations": 20,
+      "url": "https://www.nature.com/articles/s41598-022-24172-y",
+      "abstract": "Colonization of auto-polymerized acrylic resin by pathogenic Candida albicans is a common problem for denture users. In this study, zinc-modified phosphate-based glass was introduced into an auto-poly..."
+    },
+    {
+      "title": "Primary stability of orthodontic titanium miniscrews due to cortical bone density and re-insertion",
+      "authors": "Gi-Tae Kim and Jie Jin and Utkarsh Mangal and Kee-Joon Lee and Kwang-Mahn Kim and Sung-Hwan Choi and Jae-Sung Kwon",
+      "year": 2020,
+      "venue": "",
+      "citations": 19,
+      "url": "https://www.mdpi.com/1996-1944/13/19/4433",
+      "abstract": "The increasing demand for orthodontic treatment over recent years has led to a growing need for the retrieval and reuse of titanium-based miniscrews to reduce the cost of treatment, especially in pati..."
+    },
+    {
+      "title": "Occlusive membranes for guided regeneration of inflamed tissue defects",
+      "authors": "Woojin Choi and Utkarsh Mangal and Jin-Young Park and Ji-Yeong Kim and Taesuk Jun and Ju Won Jung and Moonhyun Choi and Sungwon Jung and Milae Lee and Ji-Yeong Na and Du Yeol Ryu and Jin Man Kim and Jae-Sung Kwon and Won-Gun Koh and Sangmin Lee and Patrick TJ Hwang and Kee-Joon Lee and Ui-Won Jung and Jae-Kook Cha and Sung-Hwan Choi and Jinkee Hong",
+      "year": 2023,
+      "venue": "",
+      "citations": 18,
+      "url": "https://www.nature.com/articles/s41467-023-43428-3",
+      "abstract": "Guided bone regeneration aided by the application of occlusive membranes is a promising therapy for diverse inflammatory periodontal diseases. Symbiosis, homeostasis between the host microbiome and ce..."
+    },
+    {
+      "title": "Cerium oxide nanozymes confer a cytoprotective and bio-friendly surface micro-environment to methacrylate based oro-facial prostheses",
+      "authors": "Jie Jin and Utkarsh Mangal and Ji-Young Seo and Ji-Yeong Kim and Jeong-Hyun Ryu and Young-Hee Lee and Cerjay Lugtu and Geelsu Hwang and Jung-Yul Cha and Kee-Joon Lee and Hyung-Seog Yu and Kwang-Mahn Kim and Sungil Jang and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2023,
+      "venue": "",
+      "citations": 18,
+      "url": "https://www.sciencedirect.com/science/article/pii/S0142961223000716",
+      "abstract": "Poly-(methyl methacrylate) (PMMA) is the preferred biomaterial for orofacial prostheses used for the rehabilitation of naso-palatal defects. However, conventional PMMA has limitations determined by th..."
+    },
+    {
+      "title": "Multivalent network modifier upregulates bioactivity of multispecies biofilm-resistant polyalkenoate cement",
+      "authors": "Ji-Yeong Kim and Woojin Choi and Utkarsh Mangal and Ji-Young Seo and Tae-Yun Kang and Joohee Lee and Taeho Kim and Jung-Yul Cha and Kee-Joon Lee and Kwang-Mahn Kim and Jin-Man Kim and Dohyun Kim and Jae-Sung Kwon and Jinkee Hong and Sung-Hwan Choi",
+      "year": 2022,
+      "venue": "",
+      "citations": 16,
+      "url": "https://www.sciencedirect.com/science/article/pii/S2452199X21005429",
+      "abstract": "Polyalkenoate cement (PAC) is a promising material for regenerative hard tissue therapy. The ionically rich glass component of PAC encourages bioactive interaction via. the release of essential ions. ..."
+    },
+    {
+      "title": "Effects of changes in the Frankfort horizontal plane definition on the three-dimensional cephalometric evaluation of symmetry",
+      "authors": "Utkarsh Mangal and Jae Joon Hwang and Heon Jo and Sung Min Lee and Yun-Hoa Jung and Bong-Hae Cho and Jung-Yul Cha and Sung-Hwan Choi",
+      "year": 2020,
+      "venue": "",
+      "citations": 16,
+      "url": "https://www.mdpi.com/2076-3417/10/22/7956",
+      "abstract": "The plane formed by the intersection of bilateral porions (PoR and PoL) and left orbitale (OrL) is conventionally defined as the Frankfort horizontal (FH) plane. We aim to test the influence of the FH..."
+    },
+    {
+      "title": "Reliability and time-based efficiency of artificial intelligence-based automatic digital model analysis system",
+      "authors": "Jae-Hun Yu and Ji-Hoi Kim and Jing Liu and Utkarsh Mangal and Hee-Kap Ahn and Jung-Yul Cha",
+      "year": 2023,
+      "venue": "",
+      "citations": 15,
+      "url": "https://academic.oup.com/ejo/article-abstract/45/6/712/7221306",
+      "abstract": "To compare the reliability, reproducibility, and time-based efficiency of automatic digital (AD) and manual digital (MD) model analyses using intraoral scan models.Two examiners analysed 26 intraoral ..."
+    },
+    {
+      "title": "Assessment of immediate loading with mini-implant anchorage in critical anchorage cases between stainless steel versus titanium miniscrew implants: a controlled clinical trial",
+      "authors": "MV Ashith and BK Shetty and Yash Shekatkar and Utkarsh Mangal and K Mithun",
+      "year": 2018,
+      "venue": "",
+      "citations": 13,
+      "url": "https://biomedpharmajournal.org/vol11no2/assessment-of-immediate-loading-with-mini-implant-anchorage-in-critical-anchorage-cases-between-stainless-steel-versus-titanium-miniscrew-implants-a-controlled-clinical-trial/",
+      "abstract": "Anchorage in orthodontics is a decisive factor in progress and outcome of a case. With the advent of mini-implants, great advances have been achieved in terms of absolute anchorage. The following arti..."
+    },
+    {
+      "title": "Enhancing biofilm resistance and preserving optical translucency of 3D printed clear aligners through carboxybetaine-copolymer surface treatment",
+      "authors": "Chengzan Wu and Utkarsh Mangal and Ji-Young Seo and Hoon Kim and Na Bai and Jung-Yul Cha and Kee-Joon Lee and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2024,
+      "venue": "",
+      "citations": 12,
+      "url": "https://www.sciencedirect.com/science/article/pii/S0109564124002100",
+      "abstract": "ObjectivesThis study aimed to use a carboxybetaine methacrylate (CBMA) copolymer solution to surface treat 3D printed clear aligners at different fabrication stages, to impart antifouling properties, ..."
+    },
+    {
+      "title": "Changes in mechanical and bacterial properties of denture base resin following nanoceria incorporation with and without SBA-15 carriers",
+      "authors": "Utkarsh Mangal and Ji-Young Seo and Jeong-Hyun Ryu and Jie Jin and Chengzan Wu and Jung-Yul Cha and Kee-Joon Lee and Hyung-Seog Yu and Kwang-Mahn Kim and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2023,
+      "venue": "",
+      "citations": 12,
+      "url": "https://www.sciencedirect.com/science/article/pii/S1751616122005392",
+      "abstract": "Poly (methyl methacrylate) (PMMA) is a commonly used material for the fabrication of biomedical appliances. Although PMMA has several advantages, it is susceptible to microbial insults with practical ..."
+    },
+    {
+      "title": "Effect of strontium substitution on functional activity of phosphate-based glass",
+      "authors": "Jeong-Hyun Ryu and Utkarsh Mangal and Myung-Jin Lee and Ji-Young Seo and Il Jun Jeong and Jin-Young Park and Ji-Yeong Na and Kee-Joon Lee and Hyung-Seog Yu and Jae-Kook Cha and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2023,
+      "venue": "",
+      "citations": 12,
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2023/bm/d3bm00610g",
+      "abstract": "Phosphate-based glass (PBG) is a bioactive agent, composed of a glass network with phosphate as the primary component and can be substituted with various therapeutic ions for functional enhancement. S..."
     }
   ],
-  "fetchedAt": "2026-01-31T00:00:00"
+  "fetchedAt": "2026-01-31T17:12:41.053565"
 }
