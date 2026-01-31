@@ -1,4 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useLanguage } from './contexts/LanguageContext';
+import { useTranslation } from './i18n/translations';
+import SEO from './components/SEO';
+import LanguageToggle from './components/LanguageToggle';
+import DarkModeToggle from './components/DarkModeToggle';
+import PublicationCard from './components/PublicationCard';
+import About from './sections/About';
+import Projects from './sections/Projects';
+import Awards from './sections/Awards';
+import Teaching from './sections/Teaching';
+import Contact from './sections/Contact';
 import { 
   User, 
   FileText, 
@@ -28,10 +39,25 @@ import {
   Search
 } from 'lucide-react';
 
+// Static network data - moved outside component to prevent recreation
+const NETWORK_NODES = [
+  { id: 1, text: "Metagenomics", x: 20, y: 30, size: "text-2xl", color: "text-blue-400", connections: [2, 5, 7] },
+  { id: 2, text: "Biofilms", x: 45, y: 20, size: "text-3xl", color: "text-slate-100", connections: [1, 3, 10] },
+  { id: 3, text: "Zwitterionics", x: 75, y: 35, size: "text-xl", color: "text-purple-400", connections: [2, 4, 10] },
+  { id: 4, text: "Microfluidics", x: 80, y: 65, size: "text-2xl", color: "text-emerald-400", connections: [3, 7] },
+  { id: 5, text: "DADA2", x: 15, y: 60, size: "text-lg", color: "text-slate-400", connections: [1, 7] },
+  { id: 6, text: "CAD/CAM", x: 50, y: 80, size: "text-xl", color: "text-orange-400", connections: [10, 8] },
+  { id: 7, text: "Multiomics", x: 35, y: 50, size: "text-2xl", color: "text-blue-300", connections: [1, 4, 5] },
+  { id: 8, text: "Nanozymes", x: 65, y: 85, size: "text-lg", color: "text-slate-400", connections: [6, 10] },
+  { id: 9, text: "Oral Microbiome", x: 10, y: 85, size: "text-xl", color: "text-emerald-500", connections: [5, 7] },
+  { id: 10, text: "Biomaterials", x: 55, y: 55, size: "text-3xl", color: "text-white", connections: [2, 3, 6, 8] },
+];
+
 const App = () => {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
   const [activeTab, setActiveTab] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hoveredNode, setHoveredNode] = useState(null);
   
   const [scholarMetrics, setScholarMetrics] = useState({
     citations: 0,
@@ -81,12 +107,21 @@ const App = () => {
   }, []);
 
   const profile = {
-    name: "Utkarsh Mangal",
-    degrees: "B.D.S, M.D.S, Ph.D",
-    title: "Assistant Research Professor",
-    dept: "Dept. of Oral Biology, Yonsei University College of Dentistry",
+    name: {
+      en: "Utkarsh Mangal",
+      ko: "만갈웃커시"
+    },
+    degrees: "BDS, MDS (Ortho), Ph.D",
+    title: {
+      en: "Assistant Research Professor",
+      ko: "연구조교수"
+    },
+    dept: {
+      en: "Dept. of Oral Biology, Yonsei University College of Dentistry",
+      ko: "연세대학교 치과대학 구강생물학교실"
+    },
     location: "Seoul, Republic of Korea",
-    tagline: "Engineering the next generation of biofilm-resistant biomaterials through metagenomic insight.",
+    tagline: "Engineering the next generation of symbiotic biomaterials through metagenomic insight.",
     bio: "I bridge clinical dentistry and molecular engineering to develop anti-fouling surfaces and AI-driven diagnostics.",
     skills: ["Metagenomics", "DADA2", "QIIME 2", "Bioinformatics", "Dental CAD/CAM", "Zwitterionic Materials", "Microfluidics"]
   };
@@ -118,20 +153,6 @@ const App = () => {
     }
   ];
 
-  // Advanced Network Map Data
-  const networkNodes = [
-    { id: 1, text: "Metagenomics", x: 20, y: 30, size: "text-2xl", color: "text-blue-400", connections: [2, 5, 7] },
-    { id: 2, text: "Biofilms", x: 45, y: 20, size: "text-3xl", color: "text-slate-100", connections: [1, 3, 10] },
-    { id: 3, text: "Zwitterionics", x: 75, y: 35, size: "text-xl", color: "text-purple-400", connections: [2, 4, 10] },
-    { id: 4, text: "Microfluidics", x: 80, y: 65, size: "text-2xl", color: "text-emerald-400", connections: [3, 7] },
-    { id: 5, text: "DADA2", x: 15, y: 60, size: "text-lg", color: "text-slate-400", connections: [1, 7] },
-    { id: 6, text: "CAD/CAM", x: 50, y: 80, size: "text-xl", color: "text-orange-400", connections: [10, 8] },
-    { id: 7, text: "Multiomics", x: 35, y: 50, size: "text-2xl", color: "text-blue-300", connections: [1, 4, 5] },
-    { id: 8, text: "Nanozymes", x: 65, y: 85, size: "text-lg", color: "text-slate-400", connections: [6, 10] },
-    { id: 9, text: "Oral Microbiome", x: 10, y: 85, size: "text-xl", color: "text-emerald-500", connections: [5, 7] },
-    { id: 10, text: "Biomaterials", x: 55, y: 55, size: "text-3xl", color: "text-white", connections: [2, 3, 6, 8] },
-  ];
-
   const experience = [
     {
       role: "Assistant Research Professor",
@@ -153,57 +174,84 @@ const App = () => {
     }
   ];
 
+  // Memoized SVG connections using static data
+  const svgConnections = useMemo(() => {
+    const connections = [];
+    NETWORK_NODES.forEach(node => {
+      node.connections.forEach(targetId => {
+        const target = NETWORK_NODES.find(n => n.id === targetId);
+        if (target) {
+          connections.push({
+            key: `${node.id}-${targetId}`,
+            x1: node.x,
+            y1: node.y,
+            x2: target.x,
+            y2: target.y,
+            sourceId: node.id,
+            targetId: target.id
+          });
+        }
+      });
+    });
+    return connections;
+  }, []); // Empty dependency array since NETWORK_NODES is static
+
   const NavItem = ({ id, icon: Icon, label }) => (
     <button
       onClick={() => {
         setActiveTab(id);
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }}
       className={`flex flex-col items-center justify-center w-full h-full transition-colors ${
-        activeTab === id ? 'text-blue-600' : 'text-gray-500'
+        activeTab === id ? 'text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400'
       }`}
     >
-      <Icon size={20} className={activeTab === id ? 'stroke-[2.5px]' : 'stroke-[1.5px]'} />
-      <span className="text-[10px] mt-1 font-medium uppercase tracking-wider">{label}</span>
+      <Icon size={18} className={`sm:w-5 sm:h-5 ${activeTab === id ? 'stroke-[2.5px]' : 'stroke-[1.5px]'}`} />
+      <span className="text-[8px] sm:text-[10px] mt-0.5 sm:mt-1 font-medium uppercase tracking-wider">{label}</span>
     </button>
   );
 
   const ResearchInfographic = () => {
     const branches = [
-      { id: 'bio', label: 'Bioinformatics', icon: Dna, color: 'text-blue-600', bg: 'bg-blue-50', desc: 'Genomic Insight' },
-      { id: 'fluid', label: 'Microfluidics', icon: Droplets, color: 'text-teal-600', bg: 'bg-teal-50', desc: 'Multiomics Lab' },
-      { id: 'plat', label: '3D Platforms', icon: Box, color: 'text-orange-600', bg: 'bg-orange-50', desc: 'Clinical Translation' },
-      { id: 'zwit', label: 'Zwitterionics', icon: Atom, color: 'text-purple-600', bg: 'bg-purple-50', desc: 'Interface Design' }
+      { id: 'bio', label: lang === 'en' ? 'Bioinformatics' : '생물정보학', icon: Dna, color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20', desc: lang === 'en' ? 'Genomic Insight' : '게놈 통찰' },
+      { id: 'fluid', label: lang === 'en' ? 'Microfluidics' : '미세유체공학', icon: Droplets, color: 'text-teal-600 dark:text-teal-400', bg: 'bg-teal-50 dark:bg-teal-900/20', desc: lang === 'en' ? 'Multiomics Lab' : '멀티오믹스 랩' },
+      { id: 'plat', label: lang === 'en' ? '3D Platforms' : '3D 플랫폼', icon: Box, color: 'text-orange-600 dark:text-orange-400', bg: 'bg-orange-50 dark:bg-orange-900/20', desc: lang === 'en' ? 'Clinical Translation' : '임상 전환' },
+      { id: 'zwit', label: lang === 'en' ? 'Zwitterionics' : '양쪽성 이온', icon: Atom, color: 'text-purple-600 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-900/20', desc: lang === 'en' ? 'Interface Design' : '인터페이스 설계' }
     ];
 
     return (
-      <div className="relative py-24 px-6 bg-white overflow-hidden">
+      <div className="relative py-24 px-6 bg-white dark:bg-slate-900 overflow-hidden">
         <div className="max-w-5xl mx-auto text-center mb-16">
-          <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-slate-100 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
-            Methodological Convergence
+          <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-slate-100 dark:bg-slate-800 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+            {t.research.methodological}
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-            Integrated Research Pillars
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">
+            {t.research.pillars}
           </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-            Synergizing computational biology and molecular engineering to redefine the future of oral biomaterials.
+          <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-lg">
+            {t.research.pillarsDesc}
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto relative">
           <div className="flex flex-col items-center justify-center mb-12 md:mb-16">
-            <div className="w-40 h-40 md:w-56 md:h-56 rounded-[3rem] bg-slate-900 rotate-45 flex items-center justify-center shadow-2xl relative group transition-transform hover:scale-105 duration-300">
+            <div className="w-40 h-40 md:w-56 md:h-56 rounded-[3rem] bg-slate-900 dark:bg-slate-800 rotate-45 flex items-center justify-center shadow-2xl relative group transition-transform hover:scale-105 duration-300">
                <div className="-rotate-45 text-center px-4">
-                  <div className="text-blue-400 font-black text-xs uppercase tracking-widest mb-1">Central</div>
-                  <h3 className="text-white font-black text-lg md:text-xl uppercase leading-tight tracking-tight">
-                    Microbiology<br/>Vision
+                  <div className="text-blue-400 dark:text-blue-300 font-black text-xs uppercase tracking-widest mb-1">
+                    {lang === 'en' ? 'Central' : '중심'}
+                  </div>
+                  <h3 className="text-white font-black text-sm md:text-base leading-tight tracking-tight">
+                    {lang === 'en'
+                      ? <>Integrating dental biomaterials,<br/>microbiome science, and digital workflows</>
+                      : <>치과 생체재료, 마이크로바이옴 과학,<br/>디지털 워크플로를 통합</>
+                    }
                   </h3>
                </div>
                <div className="absolute -inset-2 rounded-[3.5rem] border border-blue-500/20 animate-pulse"></div>
             </div>
             <div className="mt-8 flex flex-col items-center gap-2">
-              <div className="w-0.5 h-12 bg-gradient-to-b from-slate-200 to-transparent"></div>
-              <ArrowDown className="text-slate-300 animate-bounce" size={20} />
+              <div className="w-0.5 h-12 bg-gradient-to-b from-slate-200 dark:from-slate-700 to-transparent"></div>
+              <ArrowDown className="text-slate-300 dark:text-slate-600 animate-bounce" size={20} />
             </div>
           </div>
 
@@ -211,18 +259,18 @@ const App = () => {
             {branches.map((b, i) => (
               <div 
                 key={i} 
-                className="group relative bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300 flex flex-col items-center text-center"
+                className="group relative bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-blue-100 dark:hover:border-blue-900 transition-all duration-300 flex flex-col items-center text-center"
               >
                 <div className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl ${b.bg} ${b.color} flex items-center justify-center mb-6 transition-transform group-hover:scale-110 duration-300 shadow-inner`}>
                   <b.icon size={32} strokeWidth={2.5} />
                 </div>
-                <h4 className="font-black text-slate-900 text-base md:text-lg uppercase tracking-tight mb-2">
+                <h4 className="font-black text-slate-900 dark:text-white text-base md:text-lg uppercase tracking-tight mb-2">
                   {b.label}
                 </h4>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
                   {b.desc}
                 </p>
-                <div className="mt-6 w-8 h-1 bg-slate-100 rounded-full group-hover:w-16 group-hover:bg-blue-200 transition-all duration-300"></div>
+                <div className="mt-6 w-8 h-1 bg-slate-100 dark:bg-slate-700 rounded-full group-hover:w-16 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-all duration-300"></div>
               </div>
             ))}
           </div>
@@ -233,28 +281,28 @@ const App = () => {
 
   const HomeView = () => (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <section className="relative h-[85vh] flex flex-col justify-center items-center px-6 text-center bg-slate-50">
+      <SEO />
+      <section className="relative min-h-[85vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-20 sm:py-24 text-center bg-slate-50 dark:bg-slate-900">
         <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">
             <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M0 100 C 20 0, 50 0, 100 100 Z" fill="currentColor" className="text-blue-200" />
+                <path d="M0 100 C 20 0, 50 0, 100 100 Z" fill="currentColor" className="text-blue-200 dark:text-blue-800" />
             </svg>
         </div>
         
-        <div className="relative z-10">
-          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-white shadow-xl overflow-hidden mb-8 mx-auto ring-4 ring-blue-50">
-            <img src="/utkmangal/profile.jpg" alt={profile.name} className="w-full h-full object-cover" />
+        <div className="relative z-10 w-full max-w-5xl mx-auto">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full border-2 sm:border-4 border-white dark:border-slate-800 shadow-xl overflow-hidden mb-6 sm:mb-8 mx-auto ring-2 sm:ring-4 ring-blue-50 dark:ring-blue-900/50">
+            <img src="/utkmangal/profile.jpg" alt={profile.name.en} className="w-full h-full object-cover" style={{objectPosition: 'center 20%'}} />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-2">{profile.name}</h1>
-          <p className="text-lg md:text-xl text-blue-600 font-semibold mb-6 tracking-wide">{profile.degrees}</p>
-          <p className="max-w-2xl text-xl md:text-2xl text-slate-700 font-light italic leading-relaxed">
-            "{profile.tagline}"
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-2 px-4">{profile.name[lang]}</h1>
+          <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-700 dark:text-slate-300 font-light italic leading-relaxed px-4">
+            "{t.home.tagline}"
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <button onClick={() => setActiveTab('research')} className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium shadow-lg shadow-blue-200 active:scale-95 transition-all duration-300">
-              View Research
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
+            <button onClick={() => setActiveTab('publications')} className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium text-sm sm:text-base shadow-lg shadow-blue-200 dark:shadow-blue-900/50 active:scale-95 transition-all duration-300">
+              {t.home.viewResearch}
             </button>
-            <button onClick={() => setActiveTab('students')} className="px-8 py-3 bg-white text-blue-600 border border-blue-100 rounded-full font-medium shadow-sm active:scale-95 transition-all duration-300">
-              Let's Build Together
+            <button onClick={() => setActiveTab('contact')} className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-slate-700 rounded-full font-medium text-sm sm:text-base shadow-sm active:scale-95 transition-all duration-300">
+              {t.home.letsBuild}
             </button>
           </div>
         </div>
@@ -265,18 +313,18 @@ const App = () => {
   );
 
   const ResearchView = () => (
-    <div className="py-24 px-6 max-w-6xl mx-auto animate-in fade-in duration-500">
-      <div className="mb-20">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
-            <div>
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter">Research Impact</h2>
-                <p className="text-slate-500 max-w-lg text-lg">Quantitative influence across global academic networks and thematic interconnections.</p>
+    <div className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-in fade-in duration-500">
+      <div className="mb-12 sm:mb-16 lg:mb-20">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-8 sm:mb-12">
+            <div className="w-full lg:w-auto">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-3 sm:mb-4 tracking-tighter">{t.research.title}</h2>
+                <p className="text-slate-500 dark:text-slate-400 max-w-lg text-base sm:text-lg">{t.research.subtitle}</p>
             </div>
-            <div className="flex gap-4">
-                <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 rounded-2xl text-slate-600 hover:bg-blue-600 hover:text-white transition-all duration-300" title="View citation trends">
+            <div className="flex gap-3 sm:gap-4">
+                <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-2xl text-slate-600 dark:text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300" title={t.research.viewTrends}>
                     <TrendingUp size={20} />
                 </a>
-                <a href="https://scholar.google.com/scholar?q=author%3A%22Utkarsh+Mangal%22" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 rounded-2xl text-slate-600 hover:bg-blue-600 hover:text-white transition-all duration-300" title="Search publications">
+                <a href="https://scholar.google.com/scholar?q=author%3A%22Utkarsh+Mangal%22" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-2xl text-slate-600 dark:text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300" title={t.research.searchPubs}>
                     <Search size={20} />
                 </a>
             </div>
@@ -284,21 +332,21 @@ const App = () => {
         
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16">
           {[
-            { label: "Total Citations", value: scholarMetrics.citations, icon: Globe, color: "text-blue-600", bg: "bg-blue-50", trend: "+12% this year" },
-            { label: "H-Index", value: scholarMetrics.hIndex, icon: Award, color: "text-emerald-600", bg: "bg-emerald-50", trend: "High Impact" },
-            { label: "i10-Index", value: scholarMetrics.i10Index, icon: BarChart3, color: "text-purple-600", bg: "bg-purple-50", trend: "Broad Reach" }
+            { label: t.research.citations, value: scholarMetrics.citations, icon: Globe, color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-900/20", trend: t.research.trends.citations },
+            { label: t.research.hIndex, value: scholarMetrics.hIndex, icon: Award, color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-900/20", trend: t.research.trends.hIndex },
+            { label: t.research.i10Index, value: scholarMetrics.i10Index, icon: BarChart3, color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-50 dark:bg-purple-900/20", trend: t.research.trends.i10Index }
           ].map((m, i) => (
-            <div key={i} className="group p-8 rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div key={i} className="group p-8 rounded-[2rem] bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="flex justify-between items-start mb-6">
                 <div className={`w-14 h-14 rounded-2xl ${m.bg} ${m.color} flex items-center justify-center transition-transform group-hover:scale-110 duration-300`}>
                     <m.icon size={28} />
                 </div>
-                <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">{m.trend}</div>
+                <div className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">{m.trend}</div>
               </div>
-              <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-1">{m.label}</div>
-              <div className="text-4xl font-black text-slate-900 tracking-tight">
+              <div className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">{m.label}</div>
+              <div className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                 {scholarMetrics.loading ? (
-                  <div className="animate-pulse bg-slate-200 h-10 w-24 rounded"></div>
+                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 h-10 w-24 rounded"></div>
                 ) : (
                   m.value.toLocaleString()
                 )}
@@ -309,15 +357,15 @@ const App = () => {
         
         {scholarMetrics.lastUpdated && !scholarMetrics.loading && (
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-full text-xs text-slate-500">
-              <TrendingUp size={14} className="text-blue-500" />
-              <span className="font-medium">Last updated: {scholarMetrics.lastUpdated}</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 dark:bg-slate-800 rounded-full text-xs text-slate-500 dark:text-slate-400">
+              <TrendingUp size={14} className="text-blue-500 dark:text-blue-400" />
+              <span className="font-medium">{t.research.lastUpdated}: {scholarMetrics.lastUpdated}</span>
             </div>
           </div>
         )}
 
         {/* REINVENTED KEYWORD MAP */}
-        <div className="relative p-1 px-1 rounded-[3rem] bg-slate-950 shadow-2xl overflow-hidden min-h-[500px] flex flex-col">
+        <div className="relative p-1 px-1 rounded-[3rem] bg-slate-950 dark:bg-slate-950 shadow-2xl overflow-hidden min-h-[500px] flex flex-col">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_#1e293b_0%,_transparent_50%)]"></div>
           
           <div className="relative z-10 p-10 pb-4 flex justify-between items-center">
@@ -326,18 +374,22 @@ const App = () => {
                     <Sparkles size={20} />
                 </div>
                 <div>
-                    <h3 className="text-white font-black uppercase tracking-widest text-sm">Research Constellation</h3>
-                    <p className="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-0.5">Metagenomics & Biomaterials Connectivity</p>
+                    <h3 className="text-white font-black uppercase tracking-widest text-sm">{t.research.constellation}</h3>
+                    <p className="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-0.5">{t.research.connectivity}</p>
                 </div>
             </div>
             <div className="hidden sm:flex items-center gap-6">
                  <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-blue-400"></div>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Informatics</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                      {lang === 'en' ? 'Informatics' : '정보학'}
+                    </span>
                  </div>
                  <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Fluidics</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                      {lang === 'en' ? 'Fluidics' : '유체학'}
+                    </span>
                  </div>
             </div>
           </div>
@@ -345,37 +397,26 @@ const App = () => {
           <div className="relative flex-grow min-h-[400px]">
             {/* SVG Lines for Connectivity */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
-                {networkNodes.map(node => 
-                    node.connections.map(targetId => {
-                        const target = networkNodes.find(n => n.id === targetId);
-                        if (!target) return null;
-                        const isHovered = hoveredNode === node.id || hoveredNode === targetId;
-                        return (
-                            <line 
-                                key={`${node.id}-${targetId}`}
-                                x1={`${node.x}%`} y1={`${node.y}%`}
-                                x2={`${target.x}%`} y2={`${target.y}%`}
-                                stroke={isHovered ? "#3b82f6" : "#475569"}
-                                strokeWidth={isHovered ? "2" : "0.5"}
-                                className="transition-all duration-300"
-                            />
-                        );
-                    })
-                )}
+                {svgConnections.map(connection => (
+                    <line 
+                        key={connection.key}
+                        x1={`${connection.x1}%`} y1={`${connection.y1}%`}
+                        x2={`${connection.x2}%`} y2={`${connection.y2}%`}
+                        stroke="#475569"
+                        strokeWidth="0.5"
+                    />
+                ))}
             </svg>
 
-            {/* Network Nodes as Floating Labels */}
-            {networkNodes.map(node => (
+            {/* Network Nodes as Static Labels */}
+            {NETWORK_NODES.map(node => (
                 <div 
                     key={node.id}
-                    onMouseEnter={() => setHoveredNode(node.id)}
-                    onMouseLeave={() => setHoveredNode(null)}
-                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-10`}
+                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 z-10`}
                     style={{ left: `${node.x}%`, top: `${node.y}%` }}
                 >
-                    <div className={`relative ${node.color} ${node.size} ${node.weight || 'font-black'} tracking-tighter uppercase whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-300 ${hoveredNode === node.id ? 'scale-110' : 'opacity-80'}`}>
+                    <div className={`relative ${node.color} ${node.size} ${node.weight || 'font-black'} tracking-tighter uppercase whitespace-nowrap px-4 py-2 rounded-xl opacity-80`}>
                         {node.text}
-                        {hoveredNode === node.id && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-current"></div>}
                     </div>
                 </div>
             ))}
@@ -383,56 +424,42 @@ const App = () => {
           
           <div className="relative z-10 p-8 pt-0 flex justify-center">
             <div className="px-6 py-2 bg-white/5 rounded-full border border-white/10 backdrop-blur-md">
-                <span className="text-[10px] text-slate-500 font-black uppercase tracking-[0.4em]">Integrated Bio-Systems Design</span>
+                <span className="text-[10px] text-slate-500 font-black uppercase tracking-[0.4em]">
+                  {lang === 'en' ? 'Integrated Bio-Systems Design' : '통합 생물시스템 설계'}
+                </span>
             </div>
           </div>
         </div>
       </div>
 
       <div className="flex items-center gap-4 mb-10">
-          <div className="h-px flex-grow bg-slate-100"></div>
-          <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tighter flex items-center gap-3">
-            <FileText className="text-blue-600" /> Selected Outputs
+          <div className="h-px flex-grow bg-slate-100 dark:bg-slate-800"></div>
+          <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tighter flex items-center gap-3">
+            <FileText className="text-blue-600 dark:text-blue-400" /> {t.research.selectedOutputs}
           </h2>
-          <div className="h-px flex-grow bg-slate-100"></div>
+          <div className="h-px flex-grow bg-slate-100 dark:bg-slate-800"></div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {publications.map((pub, i) => (
-          <div key={i} className="group p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300">
-            <div className="flex justify-between items-start mb-6">
-              <span className="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-black rounded-full uppercase tracking-widest">
-                {pub.journal}
-              </span>
-              <span className="text-emerald-600">
-                <Award size={20} />
-              </span>
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-6 group-hover:text-blue-600 leading-snug transition-colors">
-              {pub.title}
-            </h3>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {pub.tags.map((tag, j) => (
-                <span key={j} className="text-[9px] font-black text-slate-400 uppercase border border-slate-100 px-2 py-0.5 rounded-md tracking-widest">{tag}</span>
-              ))}
-            </div>
-            <div className="flex items-center justify-between pt-6 border-t border-slate-50">
-                <span className="text-xs font-bold text-slate-400">{pub.year}</span>
-                <a href={pub.url} target="_blank" rel="noopener noreferrer" className="text-xs font-black text-blue-600 flex items-center gap-1 uppercase tracking-widest hover:translate-x-1 transition-transform duration-300">
-                    View Paper <ChevronRight size={14} />
-                </a>
-            </div>
-          </div>
+          <PublicationCard key={i} publication={pub} />
         ))}
       </div>
       
-      <div className="p-12 rounded-[3rem] bg-blue-600 text-white flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl shadow-blue-200">
+      <div className="p-12 rounded-[3rem] bg-blue-600 dark:bg-blue-700 text-white flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl shadow-blue-200 dark:shadow-blue-900/50">
           <div className="relative z-10 text-center md:text-left">
-              <h3 className="text-3xl font-black mb-3 tracking-tighter uppercase">Full Research Dossier</h3>
-              <p className="text-blue-100 text-lg opacity-80 max-w-md">30+ peer-reviewed publications across Nature portfolio, Biomaterials, and Clinical journals.</p>
+              <h3 className="text-3xl font-black mb-3 tracking-tighter uppercase">
+                {lang === 'en' ? 'Full Research Dossier' : '전체 연구 자료'}
+              </h3>
+              <p className="text-blue-100 dark:text-blue-200 text-lg opacity-80 max-w-md">
+                {lang === 'en' 
+                  ? '30+ peer-reviewed publications across Nature portfolio, Biomaterials, and Clinical journals.'
+                  : 'Nature 포트폴리오, Biomaterials 및 임상 저널에 걸쳐 30개 이상의 동료 검토 논문.'
+                }
+              </p>
           </div>
-          <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ" target="_blank" rel="noreferrer" className="relative z-10 px-10 py-5 bg-white text-blue-600 rounded-2xl font-black shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-3 uppercase tracking-widest text-sm">
-            Scholar Metrics <Globe size={18} />
+          <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ" target="_blank" rel="noreferrer" className="relative z-10 px-10 py-5 bg-white text-blue-600 dark:text-blue-700 rounded-2xl font-black shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-3 uppercase tracking-widest text-sm">
+            {lang === 'en' ? 'Scholar Metrics' : 'Scholar 지표'} <Globe size={18} />
           </a>
           <Dna className="absolute -right-20 -bottom-20 text-white/10 w-96 h-96" />
       </div>
@@ -524,109 +551,74 @@ const App = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900 antialiased">
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-xl shadow-sm py-3' : 'bg-transparent py-8'}`}>
-        <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setActiveTab('home')}>
-            <img src="/utkmangal/logo.png" alt="Logo" className="w-10 h-10 transition-transform group-hover:scale-110 duration-300" />
-            <span className="font-black tracking-tighter text-xl hidden sm:block text-slate-900 uppercase">Utkarsh Mangal</span>
+    <div className="min-h-screen bg-white dark:bg-slate-900 font-sans text-slate-900 dark:text-white antialiased transition-colors duration-300">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl shadow-sm py-2 md:py-3' : 'bg-transparent py-4 md:py-8'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+          <div className="flex items-center gap-2 sm:gap-3 cursor-pointer group" onClick={() => setActiveTab('home')}>
+            <img src="/utkmangal/logo.png" alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover:scale-110 duration-300" />
+            <span className="font-black tracking-tighter text-base sm:text-xl hidden xs:block text-slate-900 dark:text-white uppercase">Utkarsh Mangal</span>
           </div>
           
-          <div className="hidden md:flex items-center gap-10">
-            {['home', 'research', 'experience', 'students'].map((tab) => {
-              const tabLabels = { home: 'Home', research: 'Research', experience: 'Experience', students: "Let's Colaborate!" };
-              return (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 hover:text-blue-600 ${
-                    activeTab === tab ? 'text-blue-600 translate-y-[-2px]' : 'text-slate-400'
-                  }`}
-                >
-                  {tabLabels[tab]}
-                </button>
-              );
-            })}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6">
+            {['home', 'about', 'publications', 'projects', 'awards'].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`text-[10px] lg:text-xs font-black uppercase tracking-[0.15em] lg:tracking-[0.2em] transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400 ${
+                  activeTab === tab ? 'text-blue-600 dark:text-blue-400 translate-y-[-2px]' : 'text-slate-400 dark:text-slate-500'
+                }`}
+              >
+                {t.nav[tab]}
+              </button>
+            ))}
           </div>
 
-          <button 
-            onClick={() => setActiveTab('contact')}
-            className="px-6 py-2.5 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-blue-600 transition-all duration-300 shadow-xl shadow-slate-900/10 active:scale-95"
-          >
-            Get In Touch
-          </button>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <DarkModeToggle />
+            <LanguageToggle />
+            <button 
+              onClick={() => setActiveTab('contact')}
+              className="hidden md:block px-4 lg:px-6 py-2 lg:py-2.5 bg-slate-900 dark:bg-blue-600 text-white text-[9px] lg:text-[10px] font-black uppercase tracking-wider lg:tracking-widest rounded-xl hover:bg-blue-600 dark:hover:bg-blue-700 transition-all duration-300 shadow-xl shadow-slate-900/10 dark:shadow-blue-900/50 active:scale-95"
+            >
+              {t.nav.contact}
+            </button>
+          </div>
         </div>
       </header>
 
-      <main className="pb-24">
+      <main className="pb-20 sm:pb-24 pt-16 sm:pt-20 md:pt-24">
         {activeTab === 'home' && <HomeView />}
-        {activeTab === 'research' && <ResearchView />}
-        {activeTab === 'experience' && <ExperienceView />}
-        {activeTab === 'students' && <StudentView />}
-        
-        {activeTab === 'contact' && (
-          <div className="py-24 px-6 max-w-4xl mx-auto text-center animate-in fade-in duration-500">
-            <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-50 text-[10px] font-black uppercase tracking-[0.2em] text-blue-600">
-                Collaboration Network
-            </div>
-            <h2 className="text-5xl font-black mb-6 tracking-tighter">Let's Connect</h2>
-            <p className="text-slate-500 text-lg mb-16 max-w-2xl mx-auto">Open for research partnerships, graduate inquiries, and speaking engagements at the intersection of dental technology and bioinformatics.</p>
-            
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-               <a href="mailto:meta.mangal@yonsei.ac.kr" className="group p-10 rounded-[3rem] bg-slate-50 border border-slate-100 flex flex-col items-center hover:bg-blue-600 hover:border-blue-600 transition-all duration-300">
-                  <div className="w-16 h-16 rounded-2xl bg-white text-blue-600 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                    <Mail size={32} />
-                  </div>
-                  <span className="font-black text-xl mb-1 group-hover:text-white uppercase tracking-tight">Email Me</span>
-                  <span className="text-slate-500 text-sm group-hover:text-blue-100 font-bold">meta.mangal@yonsei.ac.kr</span>
-               </a>
-               <a href="https://github.com/utkmangal" target="_blank" rel="noreferrer" className="group p-10 rounded-[3rem] bg-slate-50 border border-slate-100 flex flex-col items-center hover:bg-slate-900 hover:border-slate-900 transition-all duration-300">
-                  <div className="w-16 h-16 rounded-2xl bg-white text-slate-900 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                    <Github size={32} />
-                  </div>
-                  <span className="font-black text-xl mb-1 group-hover:text-white uppercase tracking-tight">GitHub</span>
-                  <span className="text-slate-500 text-sm group-hover:text-slate-400 font-bold">@utkmangal</span>
-               </a>
-            </div>
-
-            <div className="p-12 rounded-[3rem] border border-slate-100 bg-white shadow-xl shadow-slate-100/50 max-w-xl mx-auto">
-               <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-6">
-                  <Globe className="text-slate-400" size={24} />
-               </div>
-               <h4 className="font-black mb-4 uppercase tracking-widest text-slate-900">Lab Location</h4>
-               <p className="text-slate-500 text-sm leading-relaxed font-medium">
-                  Department of Oral Biology<br />
-                  Yonsei University College of Dentistry<br />
-                  50-1 Yonsei-ro, Seodaemun-gu<br />
-                  Seoul 03722, Republic of Korea
-               </p>
-            </div>
-          </div>
-        )}
+        {activeTab === 'about' && <About />}
+        {activeTab === 'publications' && <ResearchView />}
+        {activeTab === 'projects' && <Projects />}
+        {activeTab === 'awards' && <Awards />}
+        {/* Teaching section - Hidden for now, will be included in future */}
+        {/* {activeTab === 'teaching' && <Teaching />} */}
+        {activeTab === 'contact' && <Contact />}
       </main>
 
-      <nav className="md:hidden fixed bottom-6 left-6 right-6 h-16 bg-white/90 backdrop-blur-xl border border-slate-100 rounded-3xl shadow-2xl flex items-center justify-around z-50 px-2">
-        <NavItem id="home" icon={User} label="Home" />
-        <NavItem id="research" icon={Sparkles} label="Research" />
-        <NavItem id="experience" icon={Briefcase} label="Exp" />
-        <NavItem id="students" icon={Users} label="Collaborate" />
-        <NavItem id="contact" icon={Mail} label="Contact" />
+      <nav className="lg:hidden fixed bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 h-14 sm:h-16 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border border-slate-100 dark:border-slate-700 rounded-2xl sm:rounded-3xl shadow-2xl flex items-center justify-around z-50 px-1 sm:px-2">
+        <NavItem id="home" icon={User} label={t.nav.home} />
+        <NavItem id="about" icon={FileText} label={t.nav.about} />
+        <NavItem id="publications" icon={Sparkles} label={t.nav.publications} />
+        <NavItem id="projects" icon={Box} label={t.nav.projects} />
+        <NavItem id="contact" icon={Mail} label={t.nav.contact} />
       </nav>
 
-      <footer className="hidden md:block py-20 border-t border-slate-50 bg-white">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+      <footer className="hidden lg:block py-12 sm:py-16 lg:py-20 border-t border-slate-50 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-10">
           <div className="flex flex-col items-center md:items-start gap-2">
             <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-slate-900 rounded-md"></div>
-                <span className="font-black text-xs uppercase tracking-[0.3em] text-slate-900">Utkarsh Mangal</span>
+                <div className="w-6 h-6 bg-slate-900 dark:bg-blue-600 rounded-md"></div>
+                <span className="font-black text-xs uppercase tracking-[0.3em] text-slate-900 dark:text-white">Utkarsh Mangal</span>
             </div>
-            <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-                © 2025 • Applied Interface Microbiology Lab
+            <div className="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-widest">
+                © 2025 • {t.footer.rights}
             </div>
           </div>
           <div className="flex gap-10">
             {['ORCID', 'SCHOLAR', 'LINKEDIN', 'CV'].map(link => (
-                <a key={link} href="#" className="text-[10px] font-black text-slate-400 hover:text-blue-600 tracking-[0.2em] transition-colors">{link}</a>
+                <a key={link} href="#" className="text-[10px] font-black text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 tracking-[0.2em] transition-colors">{link}</a>
             ))}
           </div>
         </div>

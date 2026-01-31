@@ -1,20 +1,24 @@
 {
   "name": "utkmangal-cv",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "type": "module",
   "private": true,
   "homepage": "https://utkmangal.github.io/utkmangal",
   "dependencies": {
+    "framer-motion": "^10.18.0",
+    "lucide-react": "^0.344.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "lucide-react": "^0.344.0"
+    "react-helmet-async": "^2.0.4",
+    "react-intersection-observer": "^9.5.3"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.1.0",
+    "autoprefixer": "^10.4.17",
     "gh-pages": "^6.1.1",
-    "tailwindcss": "^3.4.1",
     "postcss": "^8.4.35",
-    "autoprefixer": "^10.4.17"
+    "tailwindcss": "^3.4.1",
+    "vite": "^7.3.1"
   },
   "scripts": {
     "dev": "vite",
