@@ -273,12 +273,12 @@ const App = () => {
                 <p className="text-slate-500 max-w-lg text-lg">Quantitative influence across global academic networks and thematic interconnections.</p>
             </div>
             <div className="flex gap-4">
-                <button className="p-3 bg-slate-100 rounded-2xl text-slate-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                <a href="https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 rounded-2xl text-slate-600 hover:bg-blue-600 hover:text-white transition-all duration-300" title="View citation trends">
                     <TrendingUp size={20} />
-                </button>
-                <button className="p-3 bg-slate-100 rounded-2xl text-slate-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                </a>
+                <a href="https://scholar.google.com/scholar?q=author%3A%22Utkarsh+Mangal%22" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 rounded-2xl text-slate-600 hover:bg-blue-600 hover:text-white transition-all duration-300" title="Search publications">
                     <Search size={20} />
-                </button>
+                </a>
             </div>
         </div>
         
