@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTranslation } from '../i18n/translations';
 import { Box, ExternalLink, Users, Calendar, DollarSign } from 'lucide-react';
@@ -6,100 +6,73 @@ import { Box, ExternalLink, Users, Calendar, DollarSign } from 'lucide-react';
 export default function Projects() {
   const { lang } = useLanguage();
   const t = useTranslation(lang);
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const projects = [
-    {
-      title: {
-        en: "AI-Driven Biofilm Detection System",
-        ko: "AI 기반 바이오필름 감지 시스템"
-      },
-      description: {
-        en: "Developing machine learning algorithms for real-time biofilm detection on dental materials using multiomics data.",
-        ko: "멀티오믹스 데이터를 사용하여 치과 재료의 실시간 바이오필름 감지를 위한 머신 러닝 알고리즘 개발."
-      },
-      status: "ongoing",
-      duration: "2025 - 2026",
-      funding: {
-        en: "National Research Foundation",
-        ko: "국가연구재단"
-      },
-      team: "5 researchers",
-      tags: ["AI", "Metagenomics", "Diagnostics"]
-    },
-    {
-      title: {
-        en: "Zwitterionic Anti-Fouling Surfaces",
-        ko: "양쪽성 이온 오염 방지 표면"
-      },
-      description: {
-        en: "Engineering next-generation dental implant surfaces with superior biofilm resistance using zwitterionic polymer modifications.",
-        ko: "양쪽성 이온 고분자 개질을 사용한 우수한 바이오필름 저항성을 가진 차세대 치과 임플란트 표면 개발."
-      },
-      status: "ongoing",
-      duration: "2024 - 2026",
-      funding: {
-        en: "Ministry of Health & Welfare",
-        ko: "보건복지부"
-      },
-      team: "8 researchers",
-      tags: ["Biomaterials", "Surface Chemistry", "Implants"]
-    },
-    {
-      title: {
-        en: "Nanozyme-Enhanced Dental Polymers",
-        ko: "나노자임 강화 치과 고분자"
-      },
-      description: {
-        en: "Creating biocompatible dental polymers with integrated cerium oxide nanozymes for enhanced antimicrobial properties.",
-        ko: "향상된 항균 특성을 위해 세륨 산화물 나노자임이 통합된 생체적합 치과 고분자 제작."
-      },
-      status: "completed",
-      duration: "2023 - 2024",
-      funding: {
-        en: "Yonsei University",
-        ko: "연세대학교"
-      },
-      team: "6 researchers",
-      tags: ["Nanozymes", "Polymers", "Antimicrobial"],
-      publication: "https://www.sciencedirect.com/science/article/pii/S0142961223000716"
-    },
-    {
-      title: {
-        en: "Oral Microbiome Mapping Platform",
-        ko: "구강 마이크로바이옴 매핑 플랫폼"
-      },
-      description: {
-        en: "Comprehensive metagenomic analysis platform for characterizing oral biofilm communities using DADA2 and QIIME 2 pipelines.",
-        ko: "DADA2 및 QIIME 2 파이프라인을 사용한 구강 바이오필름 군집 특성화를 위한 포괄적인 메타게놈 분석 플랫폼."
-      },
-      status: "completed",
-      duration: "2022 - 2024",
-      funding: {
-        en: "Korea Health Technology R&D Project",
-        ko: "한국 보건기술연구개발사업"
-      },
-      team: "4 researchers",
-      tags: ["Metagenomics", "Bioinformatics", "Microbiome"]
-    },
-    {
-      title: {
-        en: "3D Printed Biomimetic Scaffolds",
-        ko: "3D 프린팅 생체모방 스캐폴드"
-      },
-      description: {
-        en: "Designing and fabricating 3D printed dental scaffolds with biomimetic properties for tissue engineering applications.",
-        ko: "조직 공학 응용을 위한 생체모방 특성을 가진 3D 프린팅 치과 스캐폴드 설계 및 제작."
-      },
-      status: "planning",
-      duration: "2026 - 2027",
-      funding: {
-        en: "Pending Grant Application",
-        ko: "연구비 신청 중"
-      },
-      team: "TBD",
-      tags: ["3D Printing", "Tissue Engineering", "CAD/CAM"]
-    }
-  ];
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        const response = await fetch('/utkmangal/projects.csv');
+        if (!response.ok) throw new Error('Failed to load projects');
+        
+        const csv = await response.text();
+        const lines = csv.trim().split('\n');
+        const headers = lines[0].split(',').map(h => h.trim());
+        
+        const parsed = lines.slice(1).map((line) => {
+          // Parse CSV while handling quoted fields with commas
+          const fields = [];
+          let current = '';
+          let inQuotes = false;
+          
+          for (let i = 0; i < line.length; i++) {
+            const char = line[i];
+            if (char === '"') {
+              inQuotes = !inQuotes;
+            } else if (char === ',' && !inQuotes) {
+              fields.push(current.trim().replace(/^"|"$/g, ''));
+              current = '';
+            } else {
+              current += char;
+            }
+          }
+          fields.push(current.trim().replace(/^"|"$/g, ''));
+
+          return {
+            title: {
+              en: fields[0],
+              ko: fields[1]
+            },
+            description: {
+              en: fields[2],
+              ko: fields[3]
+            },
+            status: fields[4],
+            duration: fields[5],
+            funding: {
+              en: fields[6],
+              ko: fields[7]
+            },
+            team: fields[8],
+            tags: fields[9].split('|'),
+            publication: fields[10] ? fields[10] : null
+          };
+        });
+
+        setProjects(parsed);
+        setError(null);
+      } catch (err) {
+        console.error('Error loading projects:', err);
+        setError('Failed to load projects data');
+        setProjects([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProjects();
+  }, []);
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -113,6 +86,22 @@ export default function Projects() {
         return 'bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700';
     }
   };
+
+  if (loading) {
+    return (
+      <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center text-slate-500 dark:text-slate-400">Loading projects...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center text-red-600 dark:text-red-400">{error}</div>
+      </div>
+    );
+  }
 
   return (
     <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-in fade-in duration-500">

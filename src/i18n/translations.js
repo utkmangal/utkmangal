@@ -136,7 +136,7 @@ export const translations = {
     },
     home: {
       greeting: '안녕하세요, 저는',
-      tagline: '메타게놈 통찰을 통해 심바이오틱 생체재료의 차세대를 엔지니어링하다.',
+      tagline: '메타게놈 통찰을 통해 심바이오틱 생체재료의 차세대 엔지니어링.',
       bio: '임상 치의학과 분자 공학을 융합하여 오염 방지 표면 및 AI 기반 진단 기술을 개발합니다.',
       viewResearch: '연구 보기',
       letsBuild: '함께 만들어 가요'

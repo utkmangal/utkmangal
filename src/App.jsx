@@ -207,7 +207,7 @@ const App = () => {
       }`}
     >
       <Icon size={18} className={`sm:w-5 sm:h-5 ${activeTab === id ? 'stroke-[2.5px]' : 'stroke-[1.5px]'}`} />
-      <span className="text-[8px] sm:text-[10px] mt-0.5 sm:mt-1 font-medium uppercase tracking-wider">{label}</span>
+      <span className="text-[11px] sm:text-[13px] md:text-[14px] mt-0.5 sm:mt-1 font-medium uppercase tracking-wider">{label}</span>
     </button>
   );
 
