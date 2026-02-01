@@ -4,8 +4,8 @@
     "citations": 715,
     "hIndex": 15,
     "i10Index": 21,
-    "lastUpdated": "January 31, 2026",
-    "lastUpdatedISO": "2026-01-31T17:12:06.278768"
+    "lastUpdated": "February 01, 2026",
+    "lastUpdatedISO": "2026-02-01T02:13:10.711850"
   },
   "publications": [
     {
@@ -40,7 +40,7 @@
       "authors": "Jung-Hwa Lim and Utkarsh Mangal and Na-Eun Nam and Sung-Hwan Choi and June-Sung Shim and Jong-Eun Kim",
       "year": 2021,
       "venue": "",
-      "citations": 56,
+      "citations": 57,
       "url": "https://www.mdpi.com/1996-1944/14/8/2060",
       "abstract": "The properties of underlying substrates influence the quality of an intraoral scan, but few studies have compared the outcomes using common restorative materials. In this study, we aimed to compare th..."
     },
@@ -189,5 +189,5 @@
       "abstract": "Phosphate-based glass (PBG) is a bioactive agent, composed of a glass network with phosphate as the primary component and can be substituted with various therapeutic ions for functional enhancement. S..."
     }
   ],
-  "fetchedAt": "2026-01-31T17:12:41.053565"
+  "fetchedAt": "2026-02-01T02:13:42.738049"
 }
