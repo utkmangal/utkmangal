@@ -1,11 +1,11 @@
 {
   "metrics": {
     "name": "Utkarsh Mangal",
-    "citations": 715,
-    "hIndex": 15,
-    "i10Index": 21,
-    "lastUpdated": "February 01, 2026",
-    "lastUpdatedISO": "2026-02-01T02:13:10.711850"
+    "citations": 727,
+    "hIndex": 16,
+    "i10Index": 23,
+    "lastUpdated": "February 22, 2026",
+    "lastUpdatedISO": "2026-02-22T02:04:02.027074"
   },
   "publications": [
     {
@@ -22,7 +22,7 @@
       "authors": "Jae-Sung Kwon and Ji-Yeong Kim and Utkarsh Mangal and Ji-Young Seo and Myung-Jin Lee and Jie Jin and Jae-Hun Yu and Sung-Hwan Choi",
       "year": 2021,
       "venue": "",
-      "citations": 79,
+      "citations": 81,
       "url": "https://www.mdpi.com/1422-0067/22/1/417",
       "abstract": "Poly(methyl methacralyate) (PMMA) has long been used in dentistry as a base polymer for dentures, and it is recently being used for the 3D printing of dental materials. Despite its many advantages, it..."
     },
@@ -54,7 +54,7 @@
       "abstract": "It is essential for 3D-printed intra-oral appliances to be able to withstand the mechanical and microbial insult existent in the harsh environment of the oral cavity. Poly(methyl methacrylate) (PMMA)-..."
     },
     {
-      "title": "Bio-interactive zwitterionic dental biomaterials for improving biofilm resistance: Characteristics and applications",
+      "title": "Bio-interactive zwitterionic dental biomaterials for improving biofilm resistance: characteristics and applications",
       "authors": "Utkarsh Mangal and Jae-Sung Kwon and Sung-Hwan Choi",
       "year": 2020,
       "venue": "",
@@ -67,18 +67,9 @@
       "authors": "Ji-Eun Kim and Utkarsh Mangal and Jae-Hun Yu and Gi-Tae Kim and Hoon Kim and Ji-Young Seo and Jung-Yul Cha and Kee-Joon Lee and Jae-Sung Kwon and Sung-Hwan Choi",
       "year": 2024,
       "venue": "",
-      "citations": 24,
+      "citations": 25,
       "url": "https://www.nature.com/articles/s41598-024-66150-6",
       "abstract": "The study investigated the effects of temperature and centrifugation time on the efficacy of removing uncured resin from 3D-printed clear aligners. Using a photo-polymerizable polyurethane resin (Tera..."
-    },
-    {
-      "title": "Resin-based sealant with bioactive glass and zwitterionic material for remineralisation and multi-species biofilm inhibition",
-      "authors": "Myung-Jin Lee and Ji-Yeong Kim and Ji-Young Seo and Utkarsh Mangal and Jung-Yul Cha and Jae-Sung Kwon and Sung-Hwan Choi",
-      "year": 2020,
-      "venue": "",
-      "citations": 21,
-      "url": "https://www.mdpi.com/2079-4991/10/8/1581",
-      "abstract": "Since pits and fissures are the areas most commonly affected by caries due to their structural irregularity, bioactive resin-based sealant (RBS) may contribute to the prevention of secondary caries. T..."
     },
     {
       "title": "Influence of platelet rich plasma on orthodontic tooth movement: a review",
@@ -103,16 +94,25 @@
       "authors": "Gi-Tae Kim and Jie Jin and Utkarsh Mangal and Kee-Joon Lee and Kwang-Mahn Kim and Sung-Hwan Choi and Jae-Sung Kwon",
       "year": 2020,
       "venue": "",
-      "citations": 19,
+      "citations": 20,
       "url": "https://www.mdpi.com/1996-1944/13/19/4433",
       "abstract": "The increasing demand for orthodontic treatment over recent years has led to a growing need for the retrieval and reuse of titanium-based miniscrews to reduce the cost of treatment, especially in pati..."
+    },
+    {
+      "title": "Resin-based sealant with bioactive glass and zwitterionic material for remineralisation and multi-species biofilm inhibition",
+      "authors": "Myung-Jin Lee and Ji-Yeong Kim and Ji-Young Seo and Utkarsh Mangal and Jung-Yul Cha and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2020,
+      "venue": "",
+      "citations": 20,
+      "url": "https://www.mdpi.com/2079-4991/10/8/1581",
+      "abstract": "Since pits and fissures are the areas most commonly affected by caries due to their structural irregularity, bioactive resin-based sealant (RBS) may contribute to the prevention of secondary caries. T..."
     },
     {
       "title": "Occlusive membranes for guided regeneration of inflamed tissue defects",
       "authors": "Woojin Choi and Utkarsh Mangal and Jin-Young Park and Ji-Yeong Kim and Taesuk Jun and Ju Won Jung and Moonhyun Choi and Sungwon Jung and Milae Lee and Ji-Yeong Na and Du Yeol Ryu and Jin Man Kim and Jae-Sung Kwon and Won-Gun Koh and Sangmin Lee and Patrick TJ Hwang and Kee-Joon Lee and Ui-Won Jung and Jae-Kook Cha and Sung-Hwan Choi and Jinkee Hong",
       "year": 2023,
       "venue": "",
-      "citations": 18,
+      "citations": 19,
       "url": "https://www.nature.com/articles/s41467-023-43428-3",
       "abstract": "Guided bone regeneration aided by the application of occlusive membranes is a promising therapy for diverse inflammatory periodontal diseases. Symbiosis, homeostasis between the host microbiome and ce..."
     },
@@ -126,6 +126,24 @@
       "abstract": "Poly-(methyl methacrylate) (PMMA) is the preferred biomaterial for orofacial prostheses used for the rehabilitation of naso-palatal defects. However, conventional PMMA has limitations determined by th..."
     },
     {
+      "title": "Effects of changes in the Frankfort horizontal plane definition on the three-dimensional cephalometric evaluation of symmetry",
+      "authors": "Utkarsh Mangal and Jae Joon Hwang and Heon Jo and Sung Min Lee and Yun-Hoa Jung and Bong-Hae Cho and Jung-Yul Cha and Sung-Hwan Choi",
+      "year": 2020,
+      "venue": "",
+      "citations": 17,
+      "url": "https://www.mdpi.com/2076-3417/10/22/7956",
+      "abstract": "The plane formed by the intersection of bilateral porions (PoR and PoL) and left orbitale (OrL) is conventionally defined as the Frankfort horizontal (FH) plane. We aim to test the influence of the FH..."
+    },
+    {
+      "title": "Reliability and time-based efficiency of artificial intelligence-based automatic digital model analysis system",
+      "authors": "Jae-Hun Yu and Ji-Hoi Kim and Jing Liu and Utkarsh Mangal and Hee-Kap Ahn and Jung-Yul Cha",
+      "year": 2023,
+      "venue": "",
+      "citations": 16,
+      "url": "https://academic.oup.com/ejo/article-abstract/45/6/712/7221306",
+      "abstract": "To compare the reliability, reproducibility, and time-based efficiency of automatic digital (AD) and manual digital (MD) model analyses using intraoral scan models.Two examiners analysed 26 intraoral ..."
+    },
+    {
       "title": "Multivalent network modifier upregulates bioactivity of multispecies biofilm-resistant polyalkenoate cement",
       "authors": "Ji-Yeong Kim and Woojin Choi and Utkarsh Mangal and Ji-Young Seo and Tae-Yun Kang and Joohee Lee and Taeho Kim and Jung-Yul Cha and Kee-Joon Lee and Kwang-Mahn Kim and Jin-Man Kim and Dohyun Kim and Jae-Sung Kwon and Jinkee Hong and Sung-Hwan Choi",
       "year": 2022,
@@ -135,22 +153,13 @@
       "abstract": "Polyalkenoate cement (PAC) is a promising material for regenerative hard tissue therapy. The ionically rich glass component of PAC encourages bioactive interaction via. the release of essential ions. ..."
     },
     {
-      "title": "Effects of changes in the Frankfort horizontal plane definition on the three-dimensional cephalometric evaluation of symmetry",
-      "authors": "Utkarsh Mangal and Jae Joon Hwang and Heon Jo and Sung Min Lee and Yun-Hoa Jung and Bong-Hae Cho and Jung-Yul Cha and Sung-Hwan Choi",
-      "year": 2020,
-      "venue": "",
-      "citations": 16,
-      "url": "https://www.mdpi.com/2076-3417/10/22/7956",
-      "abstract": "The plane formed by the intersection of bilateral porions (PoR and PoL) and left orbitale (OrL) is conventionally defined as the Frankfort horizontal (FH) plane. We aim to test the influence of the FH..."
-    },
-    {
-      "title": "Reliability and time-based efficiency of artificial intelligence-based automatic digital model analysis system",
-      "authors": "Jae-Hun Yu and Ji-Hoi Kim and Jing Liu and Utkarsh Mangal and Hee-Kap Ahn and Jung-Yul Cha",
+      "title": "Changes in mechanical and bacterial properties of denture base resin following nanoceria incorporation with and without SBA-15 carriers",
+      "authors": "Utkarsh Mangal and Ji-Young Seo and Jeong-Hyun Ryu and Jie Jin and Chengzan Wu and Jung-Yul Cha and Kee-Joon Lee and Hyung-Seog Yu and Kwang-Mahn Kim and Jae-Sung Kwon and Sung-Hwan Choi",
       "year": 2023,
       "venue": "",
-      "citations": 15,
-      "url": "https://academic.oup.com/ejo/article-abstract/45/6/712/7221306",
-      "abstract": "To compare the reliability, reproducibility, and time-based efficiency of automatic digital (AD) and manual digital (MD) model analyses using intraoral scan models.Two examiners analysed 26 intraoral ..."
+      "citations": 13,
+      "url": "https://www.sciencedirect.com/science/article/pii/S1751616122005392",
+      "abstract": "Poly (methyl methacrylate) (PMMA) is a commonly used material for the fabrication of biomedical appliances. Although PMMA has several advantages, it is susceptible to microbial insults with practical ..."
     },
     {
       "title": "Assessment of immediate loading with mini-implant anchorage in critical anchorage cases between stainless steel versus titanium miniscrew implants: a controlled clinical trial",
@@ -171,15 +180,6 @@
       "abstract": "ObjectivesThis study aimed to use a carboxybetaine methacrylate (CBMA) copolymer solution to surface treat 3D printed clear aligners at different fabrication stages, to impart antifouling properties, ..."
     },
     {
-      "title": "Changes in mechanical and bacterial properties of denture base resin following nanoceria incorporation with and without SBA-15 carriers",
-      "authors": "Utkarsh Mangal and Ji-Young Seo and Jeong-Hyun Ryu and Jie Jin and Chengzan Wu and Jung-Yul Cha and Kee-Joon Lee and Hyung-Seog Yu and Kwang-Mahn Kim and Jae-Sung Kwon and Sung-Hwan Choi",
-      "year": 2023,
-      "venue": "",
-      "citations": 12,
-      "url": "https://www.sciencedirect.com/science/article/pii/S1751616122005392",
-      "abstract": "Poly (methyl methacrylate) (PMMA) is a commonly used material for the fabrication of biomedical appliances. Although PMMA has several advantages, it is susceptible to microbial insults with practical ..."
-    },
-    {
       "title": "Effect of strontium substitution on functional activity of phosphate-based glass",
       "authors": "Jeong-Hyun Ryu and Utkarsh Mangal and Myung-Jin Lee and Ji-Young Seo and Il Jun Jeong and Jin-Young Park and Ji-Yeong Na and Kee-Joon Lee and Hyung-Seog Yu and Jae-Kook Cha and Jae-Sung Kwon and Sung-Hwan Choi",
       "year": 2023,
@@ -189,5 +189,5 @@
       "abstract": "Phosphate-based glass (PBG) is a bioactive agent, composed of a glass network with phosphate as the primary component and can be substituted with various therapeutic ions for functional enhancement. S..."
     }
   ],
-  "fetchedAt": "2026-02-01T02:13:42.738049"
+  "fetchedAt": "2026-02-22T02:04:31.174175"
 }
