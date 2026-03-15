@@ -1,11 +1,11 @@
 {
   "metrics": {
     "name": "Utkarsh Mangal",
-    "citations": 734,
+    "citations": 740,
     "hIndex": 16,
     "i10Index": 23,
-    "lastUpdated": "March 03, 2026",
-    "lastUpdatedISO": "2026-03-03T16:45:01.239888"
+    "lastUpdated": "March 15, 2026",
+    "lastUpdatedISO": "2026-03-15T02:14:24.648335"
   },
   "publications": [
     {
@@ -40,7 +40,7 @@
       "authors": "Jung-Hwa Lim and Utkarsh Mangal and Na-Eun Nam and Sung-Hwan Choi and June-Sung Shim and Jong-Eun Kim",
       "year": 2021,
       "venue": "",
-      "citations": 57,
+      "citations": 58,
       "url": "https://www.mdpi.com/1996-1944/14/8/2060",
       "abstract": "The properties of underlying substrates influence the quality of an intraoral scan, but few studies have compared the outcomes using common restorative materials. In this study, we aimed to compare th..."
     },
@@ -58,7 +58,7 @@
       "authors": "Utkarsh Mangal and Jae-Sung Kwon and Sung-Hwan Choi",
       "year": 2020,
       "venue": "",
-      "citations": 33,
+      "citations": 34,
       "url": "https://www.mdpi.com/1422-0067/21/23/9087",
       "abstract": "Biofilms are formed on surfaces inside the oral cavity covered by the acquired pellicle and develop into a complex, dynamic, microbial environment. Oral biofilm is a causative factor of dental and per..."
     },
@@ -67,7 +67,7 @@
       "authors": "Ji-Eun Kim and Utkarsh Mangal and Jae-Hun Yu and Gi-Tae Kim and Hoon Kim and Ji-Young Seo and Jung-Yul Cha and Kee-Joon Lee and Jae-Sung Kwon and Sung-Hwan Choi",
       "year": 2024,
       "venue": "",
-      "citations": 25,
+      "citations": 26,
       "url": "https://www.nature.com/articles/s41598-024-66150-6",
       "abstract": "The study investigated the effects of temperature and centrifugation time on the efficacy of removing uncured resin from 3D-printed clear aligners. Using a photo-polymerizable polyurethane resin (Tera..."
     },
@@ -86,7 +86,7 @@
       "year": 2017,
       "venue": "",
       "citations": 21,
-      "url": "https://pdfs.semanticscholar.org/8ec6/78990e4f010e2db0fcd3c289a7eac011482d.pdf",
+      "url": "https://biomedpharmajournal.org/vol10no3/influence-of-platelet-rich-plasma-on-orthodontic-tooth-movement-a-review/",
       "abstract": "With increasing awareness of orthodontic treatment in all age groups of society, emphasis on enhancing the rate of tooth movement has increased. This article discusses the existing methods of accelera..."
     },
     {
@@ -121,7 +121,7 @@
       "authors": "Jie Jin and Utkarsh Mangal and Ji-Young Seo and Ji-Yeong Kim and Jeong-Hyun Ryu and Young-Hee Lee and Cerjay Lugtu and Geelsu Hwang and Jung-Yul Cha and Kee-Joon Lee and Hyung-Seog Yu and Kwang-Mahn Kim and Sungil Jang and Jae-Sung Kwon and Sung-Hwan Choi",
       "year": 2023,
       "venue": "",
-      "citations": 18,
+      "citations": 19,
       "url": "https://www.sciencedirect.com/science/article/pii/S0142961223000716",
       "abstract": "Poly-(methyl methacrylate) (PMMA) is the preferred biomaterial for orofacial prostheses used for the rehabilitation of naso-palatal defects. However, conventional PMMA has limitations determined by th..."
     },
@@ -158,7 +158,7 @@
       "year": 2018,
       "venue": "",
       "citations": 14,
-      "url": "https://www.researchgate.net/profile/Ashith-M-V/publication/326087625_Assessment_of_Immediate_Loading_with_Mini-Implant_Anchorage_in_Critical_Anchorage_Cases_Between_Stainless_Steel_Versus_Titanium_Miniscrew_Implants_A_Controlled_Clinical_Trial/links/5b7560b7a6fdcc87df809f15/Assessment-of-Immediate-Loading-with-Mini-Implant-Anchorage-in-Critical-Anchorage-Cases-Between-Stainless-Steel-Versus-Titanium-Miniscrew-Implants-A-Controlled-Clinical-Trial.pdf",
+      "url": "https://biomedpharmajournal.org/vol11no2/assessment-of-immediate-loading-with-mini-implant-anchorage-in-critical-anchorage-cases-between-stainless-steel-versus-titanium-miniscrew-implants-a-controlled-clinical-trial/",
       "abstract": "Anchorage in orthodontics is a decisive factor in progress and outcome of a case. With the advent of mini-implants, great advances have been achieved in terms of absolute anchorage. The following arti..."
     },
     {
@@ -171,6 +171,15 @@
       "abstract": "Poly (methyl methacrylate) (PMMA) is a commonly used material for the fabrication of biomedical appliances. Although PMMA has several advantages, it is susceptible to microbial insults with practical ..."
     },
     {
+      "title": "Effect of strontium substitution on functional activity of phosphate-based glass",
+      "authors": "Jeong-Hyun Ryu and Utkarsh Mangal and Myung-Jin Lee and Ji-Young Seo and Il Jun Jeong and Jin-Young Park and Ji-Yeong Na and Kee-Joon Lee and Hyung-Seog Yu and Jae-Kook Cha and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2023,
+      "venue": "",
+      "citations": 13,
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2023/bm/d3bm00610g",
+      "abstract": "Phosphate-based glass (PBG) is a bioactive agent, composed of a glass network with phosphate as the primary component and can be substituted with various therapeutic ions for functional enhancement. S..."
+    },
+    {
       "title": "Enhancing biofilm resistance and preserving optical translucency of 3D printed clear aligners through carboxybetaine-copolymer surface treatment",
       "authors": "Chengzan Wu and Utkarsh Mangal and Ji-Young Seo and Hoon Kim and Na Bai and Jung-Yul Cha and Kee-Joon Lee and Jae-Sung Kwon and Sung-Hwan Choi",
       "year": 2024,
@@ -178,16 +187,7 @@
       "citations": 12,
       "url": "https://www.sciencedirect.com/science/article/pii/S0109564124002100",
       "abstract": "ObjectivesThis study aimed to use a carboxybetaine methacrylate (CBMA) copolymer solution to surface treat 3D printed clear aligners at different fabrication stages, to impart antifouling properties, ..."
-    },
-    {
-      "title": "Effect of strontium substitution on functional activity of phosphate-based glass",
-      "authors": "Jeong-Hyun Ryu and Utkarsh Mangal and Myung-Jin Lee and Ji-Young Seo and Il Jun Jeong and Jin-Young Park and Ji-Yeong Na and Kee-Joon Lee and Hyung-Seog Yu and Jae-Kook Cha and Jae-Sung Kwon and Sung-Hwan Choi",
-      "year": 2023,
-      "venue": "",
-      "citations": 12,
-      "url": "https://pubs.rsc.org/en/content/articlehtml/2023/bm/d3bm00610g",
-      "abstract": "Phosphate-based glass (PBG) is a bioactive agent, composed of a glass network with phosphate as the primary component and can be substituted with various therapeutic ions for functional enhancement. S..."
     }
   ],
-  "fetchedAt": "2026-03-03T16:45:36.479630"
+  "fetchedAt": "2026-03-15T02:14:54.283519"
 }
