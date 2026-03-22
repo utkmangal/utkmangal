@@ -1,11 +1,11 @@
 {
   "metrics": {
     "name": "Utkarsh Mangal",
-    "citations": 740,
+    "citations": 747,
     "hIndex": 16,
     "i10Index": 23,
-    "lastUpdated": "March 15, 2026",
-    "lastUpdatedISO": "2026-03-15T02:14:24.648335"
+    "lastUpdated": "March 22, 2026",
+    "lastUpdatedISO": "2026-03-22T02:07:38.802288"
   },
   "publications": [
     {
@@ -40,7 +40,7 @@
       "authors": "Jung-Hwa Lim and Utkarsh Mangal and Na-Eun Nam and Sung-Hwan Choi and June-Sung Shim and Jong-Eun Kim",
       "year": 2021,
       "venue": "",
-      "citations": 58,
+      "citations": 59,
       "url": "https://www.mdpi.com/1996-1944/14/8/2060",
       "abstract": "The properties of underlying substrates influence the quality of an intraoral scan, but few studies have compared the outcomes using common restorative materials. In this study, we aimed to compare th..."
     },
@@ -67,7 +67,7 @@
       "authors": "Ji-Eun Kim and Utkarsh Mangal and Jae-Hun Yu and Gi-Tae Kim and Hoon Kim and Ji-Young Seo and Jung-Yul Cha and Kee-Joon Lee and Jae-Sung Kwon and Sung-Hwan Choi",
       "year": 2024,
       "venue": "",
-      "citations": 26,
+      "citations": 27,
       "url": "https://www.nature.com/articles/s41598-024-66150-6",
       "abstract": "The study investigated the effects of temperature and centrifugation time on the efficacy of removing uncured resin from 3D-printed clear aligners. Using a photo-polymerizable polyurethane resin (Tera..."
     },
@@ -189,5 +189,5 @@
       "abstract": "ObjectivesThis study aimed to use a carboxybetaine methacrylate (CBMA) copolymer solution to surface treat 3D printed clear aligners at different fabrication stages, to impart antifouling properties, ..."
     }
   ],
-  "fetchedAt": "2026-03-15T02:14:54.283519"
+  "fetchedAt": "2026-03-22T02:08:08.858713"
 }
