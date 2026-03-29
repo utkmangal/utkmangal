@@ -1,11 +1,11 @@
 {
   "metrics": {
     "name": "Utkarsh Mangal",
-    "citations": 747,
+    "citations": 750,
     "hIndex": 16,
     "i10Index": 23,
-    "lastUpdated": "March 22, 2026",
-    "lastUpdatedISO": "2026-03-22T02:07:38.802288"
+    "lastUpdated": "March 29, 2026",
+    "lastUpdatedISO": "2026-03-29T02:23:36.040400"
   },
   "publications": [
     {
@@ -126,6 +126,15 @@
       "abstract": "Poly-(methyl methacrylate) (PMMA) is the preferred biomaterial for orofacial prostheses used for the rehabilitation of naso-palatal defects. However, conventional PMMA has limitations determined by th..."
     },
     {
+      "title": "Reliability and time-based efficiency of artificial intelligence-based automatic digital model analysis system",
+      "authors": "Jae-Hun Yu and Ji-Hoi Kim and Jing Liu and Utkarsh Mangal and Hee-Kap Ahn and Jung-Yul Cha",
+      "year": 2023,
+      "venue": "",
+      "citations": 17,
+      "url": "https://academic.oup.com/ejo/article-abstract/45/6/712/7221306",
+      "abstract": "To compare the reliability, reproducibility, and time-based efficiency of automatic digital (AD) and manual digital (MD) model analyses using intraoral scan models.Two examiners analysed 26 intraoral ..."
+    },
+    {
       "title": "Effects of changes in the Frankfort horizontal plane definition on the three-dimensional cephalometric evaluation of symmetry",
       "authors": "Utkarsh Mangal and Jae Joon Hwang and Heon Jo and Sung Min Lee and Yun-Hoa Jung and Bong-Hae Cho and Jung-Yul Cha and Sung-Hwan Choi",
       "year": 2020,
@@ -133,15 +142,6 @@
       "citations": 17,
       "url": "https://www.mdpi.com/2076-3417/10/22/7956",
       "abstract": "The plane formed by the intersection of bilateral porions (PoR and PoL) and left orbitale (OrL) is conventionally defined as the Frankfort horizontal (FH) plane. We aim to test the influence of the FH..."
-    },
-    {
-      "title": "Reliability and time-based efficiency of artificial intelligence-based automatic digital model analysis system",
-      "authors": "Jae-Hun Yu and Ji-Hoi Kim and Jing Liu and Utkarsh Mangal and Hee-Kap Ahn and Jung-Yul Cha",
-      "year": 2023,
-      "venue": "",
-      "citations": 16,
-      "url": "https://academic.oup.com/ejo/article-abstract/45/6/712/7221306",
-      "abstract": "To compare the reliability, reproducibility, and time-based efficiency of automatic digital (AD) and manual digital (MD) model analyses using intraoral scan models.Two examiners analysed 26 intraoral ..."
     },
     {
       "title": "Multivalent network modifier upregulates bioactivity of multispecies biofilm-resistant polyalkenoate cement",
@@ -153,6 +153,15 @@
       "abstract": "Polyalkenoate cement (PAC) is a promising material for regenerative hard tissue therapy. The ionically rich glass component of PAC encourages bioactive interaction via. the release of essential ions. ..."
     },
     {
+      "title": "Changes in mechanical and bacterial properties of denture base resin following nanoceria incorporation with and without SBA-15 carriers",
+      "authors": "Utkarsh Mangal and Ji-Young Seo and Jeong-Hyun Ryu and Jie Jin and Chengzan Wu and Jung-Yul Cha and Kee-Joon Lee and Hyung-Seog Yu and Kwang-Mahn Kim and Jae-Sung Kwon and Sung-Hwan Choi",
+      "year": 2023,
+      "venue": "",
+      "citations": 14,
+      "url": "https://www.sciencedirect.com/science/article/pii/S1751616122005392",
+      "abstract": "Poly (methyl methacrylate) (PMMA) is a commonly used material for the fabrication of biomedical appliances. Although PMMA has several advantages, it is susceptible to microbial insults with practical ..."
+    },
+    {
       "title": "Assessment of immediate loading with mini-implant anchorage in critical anchorage cases between stainless steel versus titanium miniscrew implants: a controlled clinical trial",
       "authors": "MV Ashith and BK Shetty and Yash Shekatkar and Utkarsh Mangal and K Mithun",
       "year": 2018,
@@ -160,15 +169,6 @@
       "citations": 14,
       "url": "https://biomedpharmajournal.org/vol11no2/assessment-of-immediate-loading-with-mini-implant-anchorage-in-critical-anchorage-cases-between-stainless-steel-versus-titanium-miniscrew-implants-a-controlled-clinical-trial/",
       "abstract": "Anchorage in orthodontics is a decisive factor in progress and outcome of a case. With the advent of mini-implants, great advances have been achieved in terms of absolute anchorage. The following arti..."
-    },
-    {
-      "title": "Changes in mechanical and bacterial properties of denture base resin following nanoceria incorporation with and without SBA-15 carriers",
-      "authors": "Utkarsh Mangal and Ji-Young Seo and Jeong-Hyun Ryu and Jie Jin and Chengzan Wu and Jung-Yul Cha and Kee-Joon Lee and Hyung-Seog Yu and Kwang-Mahn Kim and Jae-Sung Kwon and Sung-Hwan Choi",
-      "year": 2023,
-      "venue": "",
-      "citations": 13,
-      "url": "https://www.sciencedirect.com/science/article/pii/S1751616122005392",
-      "abstract": "Poly (methyl methacrylate) (PMMA) is a commonly used material for the fabrication of biomedical appliances. Although PMMA has several advantages, it is susceptible to microbial insults with practical ..."
     },
     {
       "title": "Effect of strontium substitution on functional activity of phosphate-based glass",
@@ -189,5 +189,5 @@
       "abstract": "ObjectivesThis study aimed to use a carboxybetaine methacrylate (CBMA) copolymer solution to surface treat 3D printed clear aligners at different fabrication stages, to impart antifouling properties, ..."
     }
   ],
-  "fetchedAt": "2026-03-22T02:08:08.858713"
+  "fetchedAt": "2026-03-29T02:24:06.289241"
 }
