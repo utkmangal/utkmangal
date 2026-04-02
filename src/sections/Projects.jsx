@@ -13,7 +13,9 @@ export default function Projects() {
   useEffect(() => {
     const loadProjects = async () => {
       try {
-        const response = await fetch('/utkmangal/projects.csv');
+        const response = await fetch(`${import.meta.env.BASE_URL}projects.csv`, {
+          cache: 'no-store'
+        });
         if (!response.ok) throw new Error('Failed to load projects');
         
         const csv = await response.text();
