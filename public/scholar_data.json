@@ -1,11 +1,11 @@
 {
   "metrics": {
     "name": "Utkarsh Mangal",
-    "citations": 750,
+    "citations": 753,
     "hIndex": 16,
     "i10Index": 23,
-    "lastUpdated": "March 29, 2026",
-    "lastUpdatedISO": "2026-03-29T02:23:36.040400"
+    "lastUpdated": "April 02, 2026",
+    "lastUpdatedISO": "2026-04-02T16:21:48.376474"
   },
   "publications": [
     {
@@ -40,7 +40,7 @@
       "authors": "Jung-Hwa Lim and Utkarsh Mangal and Na-Eun Nam and Sung-Hwan Choi and June-Sung Shim and Jong-Eun Kim",
       "year": 2021,
       "venue": "",
-      "citations": 59,
+      "citations": 60,
       "url": "https://www.mdpi.com/1996-1944/14/8/2060",
       "abstract": "The properties of underlying substrates influence the quality of an intraoral scan, but few studies have compared the outcomes using common restorative materials. In this study, we aimed to compare th..."
     },
@@ -130,7 +130,11 @@
       "authors": "Jae-Hun Yu and Ji-Hoi Kim and Jing Liu and Utkarsh Mangal and Hee-Kap Ahn and Jung-Yul Cha",
       "year": 2023,
       "venue": "",
+<<<<<<< HEAD
       "citations": 17,
+=======
+      "citations": 18,
+>>>>>>> ce89e89 (Update Scholar data and project status)
       "url": "https://academic.oup.com/ejo/article-abstract/45/6/712/7221306",
       "abstract": "To compare the reliability, reproducibility, and time-based efficiency of automatic digital (AD) and manual digital (MD) model analyses using intraoral scan models.Two examiners analysed 26 intraoral ..."
     },
@@ -139,7 +143,11 @@
       "authors": "Utkarsh Mangal and Jae Joon Hwang and Heon Jo and Sung Min Lee and Yun-Hoa Jung and Bong-Hae Cho and Jung-Yul Cha and Sung-Hwan Choi",
       "year": 2020,
       "venue": "",
+<<<<<<< HEAD
       "citations": 17,
+=======
+      "citations": 18,
+>>>>>>> ce89e89 (Update Scholar data and project status)
       "url": "https://www.mdpi.com/2076-3417/10/22/7956",
       "abstract": "The plane formed by the intersection of bilateral porions (PoR and PoL) and left orbitale (OrL) is conventionally defined as the Frankfort horizontal (FH) plane. We aim to test the influence of the FH..."
     },
@@ -189,5 +197,9 @@
       "abstract": "ObjectivesThis study aimed to use a carboxybetaine methacrylate (CBMA) copolymer solution to surface treat 3D printed clear aligners at different fabrication stages, to impart antifouling properties, ..."
     }
   ],
+<<<<<<< HEAD
   "fetchedAt": "2026-03-29T02:24:06.289241"
+=======
+  "fetchedAt": "2026-04-02T16:22:24.891934"
+>>>>>>> ce89e89 (Update Scholar data and project status)
 }
