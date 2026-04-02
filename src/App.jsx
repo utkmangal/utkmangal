@@ -617,8 +617,13 @@ const App = () => {
             </div>
           </div>
           <div className="flex gap-10">
-            {['ORCID', 'SCHOLAR', 'LINKEDIN', 'CV'].map(link => (
-                <a key={link} href="#" className="text-[10px] font-black text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 tracking-[0.2em] transition-colors">{link}</a>
+            {[
+              { label: 'ORCID', href: 'https://orcid.org/0000-0002-8323-9812' },
+              { label: 'SCHOLAR', href: 'https://scholar.google.co.kr/citations?user=Fi5CddUAAAAJ' },
+              { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/utkmangal/' },
+              { label: 'CV', href: `${import.meta.env.BASE_URL}assets/cv/Utkarsh%20Mangal_CV2025.pdf` }
+            ].map(link => (
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-[10px] font-black text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 tracking-[0.2em] transition-colors">{link.label}</a>
             ))}
           </div>
         </div>

@@ -42,7 +42,7 @@ export default function Contact() {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      url: 'https://linkedin.com/in/utkarsh-mangal',
+      url: 'https://www.linkedin.com/in/utkmangal/',
       color: 'hover:text-blue-600'
     },
     {

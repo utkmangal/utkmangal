@@ -237,7 +237,7 @@ export default function About() {
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <a 
-                href="/utkmangal/assets/cv/CV_Utkarsh_Mangal.pdf" 
+                href={`${import.meta.env.BASE_URL}assets/cv/Utkarsh%20Mangal_CV2025.pdf`} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium shadow-lg shadow-blue-200 dark:shadow-blue-900/50 transition-all duration-300"
