@@ -9,7 +9,6 @@ from scholarly import scholarly
 import json
 from datetime import datetime
 import sys
-import os
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,7 +16,7 @@ CACHE_FILE = BASE_DIR / 'public' / 'scholar_data.json'
 
 
 def load_cached_data():
-    """Load the most recent saved Scholar data if it exists."""
+    """Load the most recent saved Scholar metrics if they exist."""
     if not CACHE_FILE.exists():
         return None
 
@@ -73,12 +72,11 @@ def main():
     else:
         output_data = {
             'metrics': metrics,
-            'publications': cached_data.get('publications', []) if cached_data else [],
             'fetchedAt': datetime.now().isoformat()
         }
 
     output_file = CACHE_FILE
-    os.makedirs(output_file.parent, exist_ok=True)
+    output_file.parent.mkdir(parents=True, exist_ok=True)
 
     with open(output_file, 'w', encoding='utf-8') as handle:
         json.dump(output_data, handle, indent=2, ensure_ascii=False)
