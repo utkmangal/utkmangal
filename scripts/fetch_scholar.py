@@ -1,33 +1,44 @@
 #!/usr/bin/env python3
 """
-Fetch Google Scholar metrics and publications dynamically.
-Run this script to update scholar_data.json with latest metrics.
+Fetch Google Scholar metrics dynamically.
+Run this script to update scholar_data.json with the latest metrics.
 """
 
-from scholarly import scholarly, ProxyGenerator
+from pathlib import Path
+from scholarly import scholarly
 import json
 from datetime import datetime
 import sys
 import os
 
-def get_scholar_data(author_id):
-    """Fetch data from Google Scholar profile"""
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+CACHE_FILE = BASE_DIR / 'public' / 'scholar_data.json'
+
+
+def load_cached_data():
+    """Load the most recent saved Scholar data if it exists."""
+    if not CACHE_FILE.exists():
+        return None
+
+    try:
+        with CACHE_FILE.open('r', encoding='utf-8') as handle:
+            return json.load(handle)
+    except Exception as exc:
+        print(f"Warning: Could not read cached Scholar data: {exc}")
+        return None
+
+def get_scholar_metrics(author_id):
+    """Fetch the latest metrics from Google Scholar."""
     print(f"Fetching data for author ID: {author_id}")
     
     try:
-        # Optional: Set up proxy to avoid rate limiting
-        # pg = ProxyGenerator()
-        # pg.FreeProxies()
-        # scholarly.use_proxy(pg)
-        
-        # Search for author
         author = scholarly.search_author_id(author_id)
         author = scholarly.fill(author)
         
         print(f"Found author: {author.get('name', 'Unknown')}")
-        
-        # Extract metrics
-        metrics = {
+
+        return {
             'name': author.get('name', ''),
             'citations': author.get('citedby', 0),
             'hIndex': author.get('hindex', 0),
@@ -36,42 +47,9 @@ def get_scholar_data(author_id):
             'lastUpdatedISO': datetime.now().isoformat()
         }
         
-        print(f"Citations: {metrics['citations']}, h-index: {metrics['hIndex']}, i10-index: {metrics['i10Index']}")
-        
-        # Extract publications
-        publications = []
-        print("Fetching publications...")
-        
-        for idx, pub in enumerate(author.get('publications', [])[:20], 1):  # Top 20
-            try:
-                print(f"  Processing publication {idx}...")
-                pub_filled = scholarly.fill(pub)
-                
-                pub_data = {
-                    'title': pub_filled['bib'].get('title', 'Untitled'),
-                    'authors': pub_filled['bib'].get('author', ''),
-                    'year': pub_filled['bib'].get('pub_year', 'N/A'),
-                    'venue': pub_filled['bib'].get('venue', ''),
-                    'citations': pub_filled.get('num_citations', 0),
-                    'url': pub_filled.get('pub_url', ''),
-                    'abstract': pub_filled['bib'].get('abstract', '')[:200] + '...' if pub_filled['bib'].get('abstract') else ''
-                }
-                
-                publications.append(pub_data)
-                
-            except Exception as e:
-                print(f"  Warning: Could not process publication {idx}: {e}")
-                continue
-        
-        # Sort by citations
-        publications.sort(key=lambda x: x['citations'], reverse=True)
-        print(f"Successfully fetched {len(publications)} publications")
-        
-        return metrics, publications
-        
     except Exception as e:
         print(f"Error fetching Scholar data: {e}")
-        return None, None
+        return None
 
 def main():
     # Your Google Scholar author ID
@@ -81,35 +59,36 @@ def main():
     print("Google Scholar Data Fetcher")
     print("=" * 60)
     
-    metrics, publications = get_scholar_data(AUTHOR_ID)
-    
-    if metrics and publications:
-        # Prepare data structure
-        data = {
+    cached_data = load_cached_data()
+    metrics = get_scholar_metrics(AUTHOR_ID)
+
+    if metrics is None:
+        if cached_data and cached_data.get('metrics'):
+            print("Using cached Scholar data because live fetch failed.")
+            cached_data['fetchedAt'] = datetime.now().isoformat()
+            output_data = cached_data
+        else:
+            print("❌ Failed to fetch Scholar data and no cached data is available")
+            return 1
+    else:
+        output_data = {
             'metrics': metrics,
-            'publications': publications,
+            'publications': cached_data.get('publications', []) if cached_data else [],
             'fetchedAt': datetime.now().isoformat()
         }
-        
-        # Determine output path (works both locally and in GitHub Actions)
-        output_dir = os.path.join(os.path.dirname(__file__), '..', 'public')
-        os.makedirs(output_dir, exist_ok=True)
-        output_file = os.path.join(output_dir, 'scholar_data.json')
-        
-        # Save to JSON
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-        
-        print("=" * 60)
-        print(f"✅ Success! Data saved to {output_file}")
-        print(f"   - {len(publications)} publications")
-        print(f"   - {metrics['citations']} total citations")
-        print("=" * 60)
-        
-        return 0
-    else:
-        print("❌ Failed to fetch Scholar data")
-        return 1
+
+    output_file = CACHE_FILE
+    os.makedirs(output_file.parent, exist_ok=True)
+
+    with open(output_file, 'w', encoding='utf-8') as handle:
+        json.dump(output_data, handle, indent=2, ensure_ascii=False)
+
+    print("=" * 60)
+    print(f"✅ Success! Data saved to {output_file}")
+    print(f"   - {output_data['metrics'].get('citations', 0)} total citations")
+    print("=" * 60)
+
+    return 0
 
 if __name__ == '__main__':
     sys.exit(main())
