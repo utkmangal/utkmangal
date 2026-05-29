@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from './contexts/LanguageContext';
 import { useTranslation } from './i18n/translations';
 import SEO from './components/SEO';
@@ -53,11 +53,19 @@ const NETWORK_NODES = [
   { id: 10, text: "Biomaterials", x: 55, y: 55, size: "text-3xl", color: "text-white", connections: [2, 3, 6, 8] },
 ];
 
+const NAV_TABS = ['home', 'about', 'publications', 'projects', 'awards', 'contact'];
+const DEFAULT_TAB = 'home';
+
 const App = () => {
   const { lang } = useLanguage();
   const t = useTranslation(lang);
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState(() => {
+    if (typeof window === 'undefined') return DEFAULT_TAB;
+    const hashTab = window.location.hash.replace('#', '').toLowerCase();
+    return NAV_TABS.includes(hashTab) ? hashTab : DEFAULT_TAB;
+  });
   const [isScrolled, setIsScrolled] = useState(false);
+  const mainContentRef = useRef(null);
   
   const [scholarMetrics, setScholarMetrics] = useState({
     citations: 0,
@@ -105,6 +113,65 @@ const App = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const syncTabWithHash = () => {
+      const hashTab = window.location.hash.replace('#', '').toLowerCase();
+      const nextTab = NAV_TABS.includes(hashTab) ? hashTab : DEFAULT_TAB;
+      setActiveTab(nextTab);
+
+      if (hashTab !== nextTab) {
+        window.history.replaceState(
+          null,
+          '',
+          `${window.location.pathname}${window.location.search}#${nextTab}`
+        );
+      }
+    };
+
+    if (!window.location.hash) {
+      window.history.replaceState(
+        null,
+        '',
+        `${window.location.pathname}${window.location.search}#${DEFAULT_TAB}`
+      );
+    }
+
+    syncTabWithHash();
+    window.addEventListener('hashchange', syncTabWithHash);
+    return () => window.removeEventListener('hashchange', syncTabWithHash);
+  }, []);
+
+  const scrollToTop = () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
+  };
+
+  const focusMainContent = () => {
+    requestAnimationFrame(() => {
+      mainContentRef.current?.focus({ preventScroll: true });
+    });
+  };
+
+  const navigateToTab = (tabId) => {
+    const nextTab = NAV_TABS.includes(tabId) ? tabId : DEFAULT_TAB;
+    setActiveTab(nextTab);
+
+    const nextHash = `#${nextTab}`;
+    if (window.location.hash !== nextHash) {
+      window.history.pushState(
+        null,
+        '',
+        `${window.location.pathname}${window.location.search}${nextHash}`
+      );
+    }
+
+    scrollToTop();
+    focusMainContent();
+  };
 
   const profile = {
     name: {
@@ -196,20 +263,24 @@ const App = () => {
     return connections;
   }, []); // Empty dependency array since NETWORK_NODES is static
 
-  const NavItem = ({ id, icon: Icon, label }) => (
+  const NavItem = ({ id, icon: Icon, label }) => {
+    const isActive = activeTab === id;
+
+    return (
     <button
-      onClick={() => {
-        setActiveTab(id);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }}
+      type="button"
+      onClick={() => navigateToTab(id)}
+      aria-label={label}
+      aria-current={isActive ? 'page' : undefined}
       className={`flex flex-col items-center justify-center w-full h-full transition-colors ${
-        activeTab === id ? 'text-[color:var(--brand-strong)] dark:text-[color:var(--brand)]' : 'text-[color:var(--muted)]'
+        isActive ? 'text-[color:var(--brand-strong)] dark:text-[color:var(--brand)]' : 'text-[color:var(--muted)]'
       }`}
     >
-      <Icon size={18} className={`sm:w-5 sm:h-5 ${activeTab === id ? 'stroke-[2.5px]' : 'stroke-[1.5px]'}`} />
+      <Icon aria-hidden="true" size={18} className={`sm:w-5 sm:h-5 ${isActive ? 'stroke-[2.5px]' : 'stroke-[1.5px]'}`} />
       <span className="text-[11px] sm:text-[13px] md:text-[14px] mt-0.5 sm:mt-1 font-medium uppercase tracking-wider">{label}</span>
     </button>
   );
+  };
 
   const ResearchInfographic = () => {
     const branches = [
@@ -298,10 +369,10 @@ const App = () => {
             "{t.home.tagline}"
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
-            <button onClick={() => setActiveTab('publications')} className="ui-btn-primary w-full sm:w-auto">
+            <button type="button" onClick={() => navigateToTab('publications')} className="ui-btn-primary w-full sm:w-auto">
               {t.home.viewResearch}
             </button>
-            <button onClick={() => setActiveTab('contact')} className="ui-btn-secondary w-full sm:w-auto">
+            <button type="button" onClick={() => navigateToTab('contact')} className="ui-btn-secondary w-full sm:w-auto">
               {t.home.letsBuild}
             </button>
           </div>
@@ -363,6 +434,37 @@ const App = () => {
             </div>
           </div>
         )}
+
+        <div className="ui-card p-5 sm:p-6 mb-12 sm:mb-14">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div>
+              <div className="ui-chip mb-3 text-[9px] sm:text-[10px]">
+                {lang === 'en' ? 'Featured outputs' : '주요 결과물'}
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-[color:var(--text)] tracking-tight mb-2">
+                {lang === 'en' ? 'Selected publications at a glance' : '선정 논문 한눈에 보기'}
+              </h3>
+              <p className="text-sm sm:text-base text-[color:var(--muted)] max-w-2xl leading-relaxed">
+                {lang === 'en'
+                  ? 'Recent peer-reviewed articles spanning biomaterials, surface chemistry, and translational dentistry.'
+                  : '생체재료, 표면 화학, 임상 전환 치의학을 아우르는 최근 동료검토 논문입니다.'}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1.5 rounded-full text-xs font-bold bg-[color:var(--brand-soft)] text-[color:var(--brand-strong)]">
+                {publications.length} {lang === 'en' ? 'papers' : '편'}
+              </span>
+              {publications.map((publication) => (
+                <span
+                  key={`${publication.year}-${publication.journal}`}
+                  className="px-3 py-1.5 rounded-full text-xs font-semibold bg-[color:var(--surface-strong)] text-[color:var(--muted)]"
+                >
+                  {publication.year} · {publication.journal}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* REINVENTED KEYWORD MAP */}
         <div className="relative p-1 px-1 rounded-[3rem] bg-slate-950 dark:bg-slate-950 shadow-2xl overflow-hidden min-h-[500px] flex flex-col">
@@ -520,7 +622,7 @@ const App = () => {
             </li>
           ))}
         </ul>
-        <button onClick={() => setActiveTab('contact')} className="mt-12 w-full md:w-auto px-10 py-5 bg-blue-600 text-white rounded-2xl font-black flex items-center justify-center gap-3 uppercase tracking-widest shadow-xl shadow-blue-900/40 hover:scale-105 transition-all duration-300">
+        <button type="button" onClick={() => navigateToTab('contact')} className="mt-12 w-full md:w-auto px-10 py-5 bg-blue-600 text-white rounded-2xl font-black flex items-center justify-center gap-3 uppercase tracking-widest shadow-xl shadow-blue-900/40 hover:scale-105 transition-all duration-300">
           Start a Conversation <Mail size={18} />
         </button>
       </div>
@@ -552,18 +654,32 @@ const App = () => {
 
   return (
     <div className="min-h-screen font-sans antialiased transition-colors duration-300">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[color:var(--surface)] focus:text-[color:var(--text)] focus:shadow-lg"
+      >
+        {lang === 'en' ? 'Skip to main content' : '본문으로 건너뛰기'}
+      </a>
+
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'backdrop-blur-xl shadow-sm py-2 md:py-3 bg-[color:var(--surface)]/90' : 'bg-transparent py-4 md:py-8'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
-          <div className="flex items-center gap-2 sm:gap-3 cursor-pointer group" onClick={() => setActiveTab('home')}>
-            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover:scale-110 duration-300" />
+          <button
+            type="button"
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer group bg-transparent border-0"
+            onClick={() => navigateToTab('home')}
+            aria-label={lang === 'en' ? 'Go to home section' : '홈 섹션으로 이동'}
+          >
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Utkarsh Mangal logo" className="w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover:scale-110 duration-300" />
             <span className="font-black tracking-tighter text-base sm:text-xl hidden sm:block uppercase text-[color:var(--text)]">Utkarsh Mangal</span>
-          </div>
+          </button>
           
-          <div className="hidden lg:flex items-center gap-4 xl:gap-6">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6" aria-label={lang === 'en' ? 'Primary navigation' : '주요 탐색'}>
             {['home', 'about', 'publications', 'projects', 'awards'].map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
+                type="button"
+                onClick={() => navigateToTab(tab)}
+                aria-current={activeTab === tab ? 'page' : undefined}
                 className={`ui-nav-pill ${
                   activeTab === tab ? 'ui-nav-pill-active' : ''
                 }`}
@@ -571,13 +687,14 @@ const App = () => {
                 {t.nav[tab]}
               </button>
             ))}
-          </div>
+          </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
             <DarkModeToggle />
             <LanguageToggle />
             <button 
-              onClick={() => setActiveTab('contact')}
+              type="button"
+              onClick={() => navigateToTab('contact')}
               className="hidden md:block ui-btn-primary px-4 lg:px-6 py-2 lg:py-2.5 text-[9px] lg:text-[10px] font-black uppercase tracking-wider lg:tracking-widest rounded-xl"
             >
               {t.nav.contact}
@@ -586,7 +703,7 @@ const App = () => {
         </div>
       </header>
 
-      <main className="pb-20 sm:pb-24 pt-16 sm:pt-20 md:pt-24">
+      <main id="main-content" ref={mainContentRef} tabIndex={-1} className="pb-20 sm:pb-24 pt-16 sm:pt-20 md:pt-24 focus:outline-none">
         {activeTab === 'home' && <HomeView />}
         {activeTab === 'about' && <About />}
         {activeTab === 'publications' && <ResearchView />}
@@ -597,7 +714,7 @@ const App = () => {
         {activeTab === 'contact' && <Contact />}
       </main>
 
-      <nav className="lg:hidden fixed bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 h-14 sm:h-16 backdrop-blur-xl border rounded-2xl sm:rounded-3xl shadow-2xl flex items-center justify-around z-50 px-1 sm:px-2 bg-[color:var(--surface)]/90 border-[color:var(--border)]">
+      <nav className="lg:hidden fixed bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 h-14 sm:h-16 backdrop-blur-xl border rounded-2xl sm:rounded-3xl shadow-2xl flex items-center justify-around z-50 px-1 sm:px-2 bg-[color:var(--surface)]/90 border-[color:var(--border)]" aria-label={lang === 'en' ? 'Mobile navigation' : '모바일 탐색'}>
         <NavItem id="home" icon={User} label={t.nav.home} />
         <NavItem id="about" icon={FileText} label={t.nav.about} />
         <NavItem id="publications" icon={Sparkles} label={t.nav.publications} />

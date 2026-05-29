@@ -2,7 +2,6 @@ import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTranslation } from '../i18n/translations';
 import { Award, Trophy, Medal, Star } from 'lucide-react';
-import LecturesPresentation from '../components/LecturesPresentation';
 
 export default function Awards() {
   const { lang } = useLanguage();
@@ -202,8 +201,6 @@ export default function Awards() {
         </div>
       </div>
 
-      {/* Lectures & Presentations Section */}
-      <LecturesPresentation />
     </div>
   );
 }

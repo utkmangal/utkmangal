@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTranslation } from '../i18n/translations';
 import { ExternalLink, ChevronDown, ChevronUp, Quote } from 'lucide-react';
@@ -7,17 +7,23 @@ export default function PublicationCard({ publication }) {
   const { lang } = useLanguage();
   const t = useTranslation(lang);
   const [showAbstract, setShowAbstract] = useState(false);
+  const abstractId = useId();
 
   return (
     <div className="ui-card rounded-xl lg:rounded-2xl p-4 sm:p-6 group">
       {/* Title */}
-      <h3 className="text-base sm:text-lg font-bold text-[color:var(--text)] mb-2 sm:mb-3 leading-snug group-hover:text-[color:var(--brand-strong)] transition-colors">
-        {publication.title}
-      </h3>
+      <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
+        <h3 className="text-base sm:text-lg font-bold text-[color:var(--text)] leading-snug group-hover:text-[color:var(--brand-strong)] transition-colors">
+          {publication.title}
+        </h3>
+        <span className="shrink-0 rounded-full bg-[color:var(--brand-soft)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[color:var(--brand-strong)]">
+          {publication.year}
+        </span>
+      </div>
 
       {/* Authors and Year */}
       <p className="text-xs sm:text-sm text-[color:var(--muted)] mb-2">
-        {publication.authors || 'Utkarsh Mangal et al.'} · {publication.year}
+        {publication.authors || 'Utkarsh Mangal et al.'}
       </p>
 
       {/* Journal */}
@@ -60,7 +66,10 @@ export default function PublicationCard({ publication }) {
       <div className="flex flex-wrap gap-2 sm:gap-3">
         {publication.abstract && (
           <button
+            type="button"
             onClick={() => setShowAbstract(!showAbstract)}
+            aria-expanded={showAbstract}
+            aria-controls={abstractId}
             className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors bg-[color:var(--surface-strong)] text-[color:var(--muted)] hover:text-[color:var(--text)]"
           >
             {showAbstract ? <ChevronUp size={14} className="sm:w-4 sm:h-4" /> : <ChevronDown size={14} className="sm:w-4 sm:h-4" />}
@@ -73,6 +82,7 @@ export default function PublicationCard({ publication }) {
             href={publication.url}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`${t.publications.paper}: ${publication.title}`}
             className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 text-white rounded-lg text-xs sm:text-sm font-medium transition-colors bg-[color:var(--brand)] hover:bg-[color:var(--brand-strong)]"
           >
             <ExternalLink size={14} className="sm:w-4 sm:h-4" />
@@ -84,7 +94,7 @@ export default function PublicationCard({ publication }) {
 
       {/* Abstract Content */}
       {showAbstract && publication.abstract && (
-        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-[color:var(--border)]">
+        <div id={abstractId} className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-[color:var(--border)]">
           <p className="text-xs sm:text-sm text-[color:var(--muted)] leading-relaxed">
             {publication.abstract}
           </p>
