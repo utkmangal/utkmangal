@@ -653,7 +653,7 @@ const App = () => {
   );
 
   return (
-    <div className="min-h-screen font-sans antialiased transition-colors duration-300">
+    <div className="min-h-screen font-[family:var(--font-sans)] antialiased transition-colors duration-300">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[color:var(--surface)] focus:text-[color:var(--text)] focus:shadow-lg"
