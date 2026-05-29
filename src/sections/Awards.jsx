@@ -143,10 +143,10 @@ export default function Awards() {
     <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-in fade-in duration-500">
       {/* Header */}
       <div className="text-center mb-12 sm:mb-16">
-        <div className="inline-block px-3 sm:px-4 py-1.5 mb-3 sm:mb-4 rounded-full bg-blue-50 dark:bg-blue-900/20 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+        <div className="ui-chip mb-3 sm:mb-4 text-[9px] sm:text-[10px]">
           {t.awards.subtitle}
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-4 sm:mb-6 tracking-tight px-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[color:var(--text)] mb-4 sm:mb-6 tracking-tight px-4">
           {t.awards.title}
         </h2>
       </div>
@@ -167,16 +167,16 @@ export default function Awards() {
             >
               {/* Content Card */}
               <div className="flex-1 w-full">
-                <div className="bg-white dark:bg-slate-800 rounded-2xl lg:rounded-3xl p-6 sm:p-8 border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group">
+                <div className="ui-card rounded-2xl lg:rounded-3xl p-6 sm:p-8 group">
                   <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
                       <award.icon size={24} className="sm:w-7 sm:h-7" strokeWidth={2.5} />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-black text-slate-900 dark:text-white mb-1 tracking-tight">
                         {award.title[lang]}
                       </h3>
-                      <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm">
+                      <p className="text-[color:var(--brand-strong)] font-semibold text-sm">
                         {award.organization[lang]}
                       </p>
                     </div>
@@ -185,7 +185,7 @@ export default function Awards() {
                     {award.description[lang]}
                   </p>
                   <div className="flex items-center gap-2">
-                    <div className="px-4 py-1.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full text-xs font-bold uppercase tracking-wider">
+                    <div className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[color:var(--brand-soft)] text-[color:var(--brand-strong)]">
                       {award.year}
                     </div>
                   </div>
@@ -193,7 +193,7 @@ export default function Awards() {
               </div>
 
               {/* Timeline Dot */}
-              <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-blue-500 border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+              <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-teal-600 border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
 
               {/* Spacer for alternating layout */}
               <div className="hidden md:block flex-1"></div>

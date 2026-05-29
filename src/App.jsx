@@ -71,7 +71,7 @@ const App = () => {
   useEffect(() => {
     const fetchScholarData = async () => {
       try {
-        const response = await fetch('/utkmangal/scholar_data.json');
+        const response = await fetch(`${import.meta.env.BASE_URL}scholar_data.json`);
         if (!response.ok) {
           throw new Error('Failed to fetch scholar data');
         }
@@ -156,7 +156,7 @@ const App = () => {
   const experience = [
     {
       role: "Assistant Research Professor",
-      org: "Yonsei University College of Dentistry",
+      org: "Department of Oral Biology, Yonsei University College of Dentistry",
       period: "2025 – Present",
       desc: "Leading research on dental biomaterials and metagenomic biofilm characterization."
     },
@@ -203,7 +203,7 @@ const App = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }}
       className={`flex flex-col items-center justify-center w-full h-full transition-colors ${
-        activeTab === id ? 'text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400'
+        activeTab === id ? 'text-[color:var(--brand-strong)] dark:text-[color:var(--brand)]' : 'text-[color:var(--muted)]'
       }`}
     >
       <Icon size={18} className={`sm:w-5 sm:h-5 ${activeTab === id ? 'stroke-[2.5px]' : 'stroke-[1.5px]'}`} />
@@ -282,26 +282,26 @@ const App = () => {
   const HomeView = () => (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
       <SEO />
-      <section className="relative min-h-[85vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-20 sm:py-24 text-center bg-slate-50 dark:bg-slate-900">
+      <section className="relative min-h-[85vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-20 sm:py-24 text-center">
         <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">
             <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M0 100 C 20 0, 50 0, 100 100 Z" fill="currentColor" className="text-blue-200 dark:text-blue-800" />
+                <path d="M0 100 C 20 0, 50 0, 100 100 Z" fill="currentColor" className="text-teal-200/80 dark:text-teal-900/80" />
             </svg>
         </div>
         
         <div className="relative z-10 w-full max-w-5xl mx-auto">
-          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full border-2 sm:border-4 border-white dark:border-slate-800 shadow-xl overflow-hidden mb-6 sm:mb-8 mx-auto ring-2 sm:ring-4 ring-blue-50 dark:ring-blue-900/50">
-            <img src="/utkmangal/profile.jpg" alt={profile.name.en} className="w-full h-full object-cover" style={{objectPosition: 'center 20%'}} />
+          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full border-2 sm:border-4 border-white/70 dark:border-slate-800 shadow-xl overflow-hidden mb-6 sm:mb-8 mx-auto ring-2 sm:ring-4 ring-teal-100/80 dark:ring-teal-900/50">
+            <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt={profile.name.en} className="w-full h-full object-cover" style={{objectPosition: 'center 20%'}} />
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-2 px-4">{profile.name[lang]}</h1>
           <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-700 dark:text-slate-300 font-light italic leading-relaxed px-4">
             "{t.home.tagline}"
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
-            <button onClick={() => setActiveTab('publications')} className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium text-sm sm:text-base shadow-lg shadow-blue-200 dark:shadow-blue-900/50 active:scale-95 transition-all duration-300">
+            <button onClick={() => setActiveTab('publications')} className="ui-btn-primary w-full sm:w-auto">
               {t.home.viewResearch}
             </button>
-            <button onClick={() => setActiveTab('contact')} className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-slate-700 rounded-full font-medium text-sm sm:text-base shadow-sm active:scale-95 transition-all duration-300">
+            <button onClick={() => setActiveTab('contact')} className="ui-btn-secondary w-full sm:w-auto">
               {t.home.letsBuild}
             </button>
           </div>
@@ -551,12 +551,12 @@ const App = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 font-sans text-slate-900 dark:text-white antialiased transition-colors duration-300">
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl shadow-sm py-2 md:py-3' : 'bg-transparent py-4 md:py-8'}`}>
+    <div className="min-h-screen font-sans antialiased transition-colors duration-300">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'backdrop-blur-xl shadow-sm py-2 md:py-3 bg-[color:var(--surface)]/90' : 'bg-transparent py-4 md:py-8'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 sm:gap-3 cursor-pointer group" onClick={() => setActiveTab('home')}>
-            <img src="/utkmangal/logo.png" alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover:scale-110 duration-300" />
-            <span className="font-black tracking-tighter text-base sm:text-xl hidden xs:block text-slate-900 dark:text-white uppercase">Utkarsh Mangal</span>
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover:scale-110 duration-300" />
+            <span className="font-black tracking-tighter text-base sm:text-xl hidden sm:block uppercase text-[color:var(--text)]">Utkarsh Mangal</span>
           </div>
           
           <div className="hidden lg:flex items-center gap-4 xl:gap-6">
@@ -564,8 +564,8 @@ const App = () => {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`text-[10px] lg:text-xs font-black uppercase tracking-[0.15em] lg:tracking-[0.2em] transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400 ${
-                  activeTab === tab ? 'text-blue-600 dark:text-blue-400 translate-y-[-2px]' : 'text-slate-400 dark:text-slate-500'
+                className={`ui-nav-pill ${
+                  activeTab === tab ? 'ui-nav-pill-active' : ''
                 }`}
               >
                 {t.nav[tab]}
@@ -578,7 +578,7 @@ const App = () => {
             <LanguageToggle />
             <button 
               onClick={() => setActiveTab('contact')}
-              className="hidden md:block px-4 lg:px-6 py-2 lg:py-2.5 bg-slate-900 dark:bg-blue-600 text-white text-[9px] lg:text-[10px] font-black uppercase tracking-wider lg:tracking-widest rounded-xl hover:bg-blue-600 dark:hover:bg-blue-700 transition-all duration-300 shadow-xl shadow-slate-900/10 dark:shadow-blue-900/50 active:scale-95"
+              className="hidden md:block ui-btn-primary px-4 lg:px-6 py-2 lg:py-2.5 text-[9px] lg:text-[10px] font-black uppercase tracking-wider lg:tracking-widest rounded-xl"
             >
               {t.nav.contact}
             </button>
@@ -597,7 +597,7 @@ const App = () => {
         {activeTab === 'contact' && <Contact />}
       </main>
 
-      <nav className="lg:hidden fixed bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 h-14 sm:h-16 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border border-slate-100 dark:border-slate-700 rounded-2xl sm:rounded-3xl shadow-2xl flex items-center justify-around z-50 px-1 sm:px-2">
+      <nav className="lg:hidden fixed bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 h-14 sm:h-16 backdrop-blur-xl border rounded-2xl sm:rounded-3xl shadow-2xl flex items-center justify-around z-50 px-1 sm:px-2 bg-[color:var(--surface)]/90 border-[color:var(--border)]">
         <NavItem id="home" icon={User} label={t.nav.home} />
         <NavItem id="about" icon={FileText} label={t.nav.about} />
         <NavItem id="publications" icon={Sparkles} label={t.nav.publications} />
@@ -605,14 +605,14 @@ const App = () => {
         <NavItem id="contact" icon={Mail} label={t.nav.contact} />
       </nav>
 
-      <footer className="hidden lg:block py-12 sm:py-16 lg:py-20 border-t border-slate-50 dark:border-slate-800 bg-white dark:bg-slate-900">
+      <footer className="hidden lg:block py-12 sm:py-16 lg:py-20 border-t bg-[color:var(--surface)] border-[color:var(--border)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-10">
           <div className="flex flex-col items-center md:items-start gap-2">
             <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-slate-900 dark:bg-blue-600 rounded-md"></div>
-                <span className="font-black text-xs uppercase tracking-[0.3em] text-slate-900 dark:text-white">Utkarsh Mangal</span>
+                <div className="w-6 h-6 rounded-md bg-[color:var(--brand)]"></div>
+                <span className="font-black text-xs uppercase tracking-[0.3em] text-[color:var(--text)]">Utkarsh Mangal</span>
             </div>
-            <div className="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-widest">
+              <div className="text-[10px] font-bold uppercase tracking-widest text-[color:var(--muted)]">
                 © 2025 • {t.footer.rights}
             </div>
           </div>
@@ -623,7 +623,7 @@ const App = () => {
               { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/utkmangal/' },
               { label: 'CV', href: `${import.meta.env.BASE_URL}assets/cv/Utkarsh%20Mangal_CV2025.pdf` }
             ].map(link => (
-                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-[10px] font-black text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 tracking-[0.2em] transition-colors">{link.label}</a>
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-[10px] font-black text-[color:var(--muted)] hover:text-[color:var(--brand-strong)] tracking-[0.2em] transition-colors">{link.label}</a>
             ))}
           </div>
         </div>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Manrope", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light;
@@ -11,6 +11,33 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --bg: #f5f7f7;
+  --bg-elev: #eef3f2;
+  --surface: #ffffff;
+  --surface-strong: #f8fbfa;
+  --text: #0f1f23;
+  --muted: #56707a;
+  --border: #d8e4e0;
+  --brand: #0f766e;
+  --brand-strong: #115e59;
+  --brand-soft: #d8f1ec;
+  --ring: #14b8a6;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0a1417;
+  --bg-elev: #101d21;
+  --surface: #112027;
+  --surface-strong: #15272f;
+  --text: #e7f3f0;
+  --muted: #9fc0bc;
+  --border: #274049;
+  --brand: #2dd4bf;
+  --brand-strong: #5eead4;
+  --brand-soft: #163a3e;
+  --ring: #5eead4;
 }
 
 * {
@@ -22,10 +49,90 @@
 body {
   margin: 0;
   min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 90% -10%, rgba(15, 118, 110, 0.15), transparent 60%),
+    radial-gradient(900px 420px at 10% 0%, rgba(20, 184, 166, 0.12), transparent 55%),
+    var(--bg);
 }
 
 #root {
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Sora", "Manrope", "Avenir Next", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+@layer components {
+  .ui-card {
+    @apply rounded-3xl border shadow-sm transition-all duration-300;
+    background: var(--surface);
+    border-color: var(--border);
+  }
+
+  .ui-card:hover {
+    box-shadow: 0 18px 40px -26px rgba(15, 31, 35, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .ui-chip {
+    @apply inline-block rounded-full px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em];
+    background: var(--brand-soft);
+    color: var(--brand-strong);
+  }
+
+  .ui-btn-primary {
+    @apply rounded-full px-7 py-3 text-sm font-semibold text-white transition-all duration-300 active:scale-95;
+    background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+    box-shadow: 0 12px 28px -16px rgba(15, 118, 110, 0.75);
+  }
+
+  .ui-btn-primary:hover {
+    filter: brightness(1.06);
+  }
+
+  .ui-btn-secondary {
+    @apply rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 active:scale-95;
+    background: var(--surface);
+    color: var(--brand-strong);
+    border: 1px solid var(--border);
+  }
+
+  .ui-btn-secondary:hover {
+    background: var(--surface-strong);
+    border-color: color-mix(in srgb, var(--brand) 35%, var(--border));
+  }
+
+  .ui-nav-pill {
+    @apply rounded-xl border px-3 py-2 text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-300;
+    border-color: transparent;
+    color: var(--muted);
+  }
+
+  .ui-nav-pill-active {
+    color: var(--brand-strong);
+    background: var(--brand-soft);
+    border-color: color-mix(in srgb, var(--brand) 40%, var(--border));
+  }
+
+  .ui-soft-panel {
+    background: linear-gradient(160deg, color-mix(in srgb, var(--brand-soft) 40%, var(--surface) 60%), var(--surface));
+    border: 1px solid var(--border);
+    @apply rounded-3xl;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
 }
 
 /* Custom animations */
@@ -67,4 +174,15 @@ body {
 
 .duration-700 {
   animation-duration: 700ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -47,7 +47,7 @@ export default function About() {
         en: "Yonsei University College of Dentistry, Seoul, Korea",
         ko: "연세대학교 치과대학, 서울, 대한민국"
       },
-      year: "2024",
+      year: "2022",
       focus: {
         en: "Biomaterials & Metagenomics",
         ko: "생체재료 및 메타게노믹스"
@@ -92,8 +92,8 @@ export default function About() {
         ko: "연구조교수"
       },
       org: {
-        en: "Yonsei University College of Dentistry",
-        ko: "연세대학교 치과대학"
+        en: "Department of Oral Biology, Yonsei University College of Dentistry",
+        ko: "연세대학교 치과대학 구강생물학교실"
       },
       period: "2025 – Present",
       desc: {
@@ -208,10 +208,10 @@ export default function About() {
     <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-in fade-in duration-500">
       {/* Header */}
       <div className="text-center mb-12 sm:mb-16">
-        <div className="inline-block px-3 sm:px-4 py-1.5 mb-3 sm:mb-4 rounded-full bg-blue-50 dark:bg-blue-900/20 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+        <div className="ui-chip mb-3 sm:mb-4 text-[9px] sm:text-[10px]">
           {t.about.subtitle}
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-4 sm:mb-6 tracking-tight px-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[color:var(--text)] mb-4 sm:mb-6 tracking-tight px-4">
           {t.about.title}
         </h2>
       </div>

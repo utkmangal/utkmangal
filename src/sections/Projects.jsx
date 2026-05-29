@@ -109,10 +109,10 @@ export default function Projects() {
     <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-in fade-in duration-500">
       {/* Header */}
       <div className="text-center mb-12 sm:mb-16">
-        <div className="inline-block px-3 sm:px-4 py-1.5 mb-3 sm:mb-4 rounded-full bg-blue-50 dark:bg-blue-900/20 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+        <div className="ui-chip mb-3 sm:mb-4 text-[9px] sm:text-[10px]">
           {t.projects.subtitle}
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-4 sm:mb-6 tracking-tight px-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[color:var(--text)] mb-4 sm:mb-6 tracking-tight px-4">
           {t.projects.title}
         </h2>
       </div>
@@ -122,7 +122,7 @@ export default function Projects() {
         {projects.map((project, idx) => (
           <div 
             key={idx}
-            className="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group"
+            className="ui-card p-8 group"
           >
             <div className="flex flex-col lg:flex-row gap-6">
               {/* Icon */}
